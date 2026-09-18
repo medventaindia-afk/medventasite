@@ -1,0 +1,1 @@
+No Content: https://www.medventa.in/cdn/shopifycloud/checkout-web/assets/c1/shared-buyer-consent.BHPkURt_.js

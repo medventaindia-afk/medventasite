@@ -1,0 +1,86 @@
+/* MedVenta Global Styling & Editorial Typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #1d1d1d;
+}
+
+/* 1. The Main Heading: Playfair Display 800 with tight negative kerning */
+.aesthetic-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  color: #0F2D4E;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .aesthetic-title {
+    font-size: 2.25rem;
+    letter-spacing: -0.75px;
+  }
+}
+
+/* 2. Electric Blue & MedVenta Teal Gradients on accent words */
+.text-gradient {
+  background: linear-gradient(135deg, #046e82 0%, #0084D1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-amber {
+  background: linear-gradient(135deg, #e99114 0%, #cf7b07 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 3. The Live Pill Badge above titles */
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  border-radius: 9999px;
+  background: #EBF8FF;
+  border: 1px solid #BAE6FD;
+  color: #046e82;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-bottom: 16px;
+}
+
+/* 4. The Glowing Live Green Dot */
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #10B981;
+  box-shadow: 0 0 8px #10B981;
+  animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+  0%   { transform: scale(0.9); opacity: 0.8; }
+  50%  { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.8; }
+}
+
+/* MedVenta Brand Utilities */
+.bg-medvanta-navy { background-color: #0F2D4E; }
+.text-medvanta-navy { color: #0F2D4E; }
+.bg-medvanta-teal { background-color: #046e82; }
+.text-medvanta-teal { color: #046e82; }
+.bg-medvanta-amber { background-color: #e99114; }
+.text-medvanta-amber { color: #e99114; }
