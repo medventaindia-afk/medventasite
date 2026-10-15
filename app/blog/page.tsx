@@ -114,14 +114,14 @@ export default function BlogIndexPage() {
                 </div>
               </div>
 
-              <div className="lg:col-span-4 bg-white/5 p-6 rounded-xl border border-white/10 backdrop-blur-sm">
-                <p className="text-xs font-bold uppercase tracking-wider text-cyan-300 mb-2">Featured Snippet Summary</p>
-                <p className="text-xs text-slate-300 leading-relaxed line-clamp-5">
-                  {featuredPost.directAnswer}
-                </p>
-                <div className="mt-4 pt-3 border-t border-white/10 text-[11px] text-slate-400 flex items-center justify-between">
-                  <span>Author: {featuredPost.author.name}</span>
-                  <span className="text-emerald-400 font-semibold">100% Verified</span>
+              <div className="lg:col-span-4 overflow-hidden rounded-xl border border-white/20 shadow-2xl relative aspect-[16/10] bg-slate-900">
+                <img
+                  src={featuredPost.featured_image || `/cdn/shop/blog/${featuredPost.slug}.webp`}
+                  alt={featuredPost.title}
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950/90 to-transparent p-3 text-[11px] text-slate-300">
+                  <span className="text-emerald-400 font-semibold">&bull; Flagship Dossier</span> &bull; CDSCO / CE 0123 Verified
                 </div>
               </div>
             </div>
@@ -216,62 +216,77 @@ export default function BlogIndexPage() {
           {filteredPosts.map((post) => (
             <article
               key={post.id}
-              className="flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:border-[#046e82] hover:shadow-md group"
+              className="flex flex-col justify-between rounded-xl border border-slate-200 bg-white overflow-hidden shadow-sm transition-all hover:border-[#046e82] hover:shadow-md group"
             >
-              <div>
-                <div className="flex items-center justify-between gap-2">
-                  <span className="inline-block rounded bg-cyan-50 px-2 py-0.5 text-[11px] font-bold text-[#046e82] border border-cyan-100">
-                    {post.category}
-                  </span>
-                  <span className="text-[10px] font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">
-                    Verified Dossier
-                  </span>
-                </div>
+              {/* Thumbnail Image */}
+              <Link href={`/blog/${post.slug}`} className="block relative aspect-[16/9] w-full overflow-hidden bg-slate-100">
+                <img
+                  src={post.featured_image || `/cdn/shop/blog/${post.slug}.webp`}
+                  alt={post.title}
+                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+                <span className="absolute bottom-2 left-2 rounded bg-slate-900/80 px-2 py-0.5 text-[10px] font-bold text-white backdrop-blur-xs">
+                  {post.category}
+                </span>
+              </Link>
 
-                <h3 className="mt-3 text-base font-bold leading-snug text-[#0F2D4E] group-hover:text-[#046e82] transition-colors">
-                  <Link href={`/blog/${post.slug}`}>
-                    {post.title}
-                  </Link>
-                </h3>
-
-                <p className="mt-2 text-xs font-medium text-[#046e82]">
-                  <strong>Target Focus:</strong> {post.primaryKeyword}
-                </p>
-
-                <p className="mt-3 text-xs leading-relaxed text-slate-600 line-clamp-3">
-                  <strong>Procurement Synopsis:</strong> {post.directAnswer}
-                </p>
-
-                {/* Entity Pills */}
-                <div className="mt-4 flex flex-wrap gap-1.5">
-                  {post.entities.slice(0, 4).map((entity, i) => (
-                    <span
-                      key={i}
-                      className="rounded bg-slate-100 px-2 py-0.5 text-[10px] font-medium text-slate-700"
-                    >
-                      {entity}
+              <div className="p-5 flex-1 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <span className="text-[10px] font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">
+                      Verified Dossier
                     </span>
-                  ))}
-                </div>
-              </div>
+                    <span className="text-[10px] text-slate-400 font-mono">
+                      {post.readTime}
+                    </span>
+                  </div>
 
-              <div className="mt-6 border-t border-slate-100 pt-4">
-                <div className="flex items-center justify-between gap-2">
-                  <Link
-                    href={`/blog/${post.slug}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#046e82] hover:text-[#015a6b]"
-                  >
-                    View Specifications &amp; Dossier
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                  </Link>
-                  <Link
-                    href="/in/b2b-quote"
-                    className="rounded bg-amber-500 px-2.5 py-1 text-[11px] font-bold text-slate-950 hover:bg-amber-400 transition-colors shadow-sm"
-                  >
-                    Quote
-                  </Link>
+                  <h3 className="text-base font-bold leading-snug text-[#0F2D4E] group-hover:text-[#046e82] transition-colors">
+                    <Link href={`/blog/${post.slug}`}>
+                      {post.title}
+                    </Link>
+                  </h3>
+
+                  <p className="mt-2 text-xs font-medium text-[#046e82]">
+                    <strong>Target Focus:</strong> {post.primaryKeyword}
+                  </p>
+
+                  <p className="mt-3 text-xs leading-relaxed text-slate-600 line-clamp-3">
+                    <strong>Procurement Synopsis:</strong> {post.directAnswer}
+                  </p>
+
+                  {/* Entity Pills */}
+                  <div className="mt-4 flex flex-wrap gap-1.5">
+                    {post.entities.slice(0, 4).map((entity, i) => (
+                      <span
+                        key={i}
+                        className="rounded bg-slate-100 px-2 py-0.5 text-[10px] font-medium text-slate-700"
+                      >
+                        {entity}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-5 border-t border-slate-100 pt-3">
+                  <div className="flex items-center justify-between gap-2">
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[#046e82] hover:text-[#015a6b]"
+                    >
+                      View Specifications &amp; Dossier
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                      </svg>
+                    </Link>
+                    <Link
+                      href="/in/b2b-quote"
+                      className="rounded bg-amber-500 px-2.5 py-1 text-[11px] font-bold text-slate-950 hover:bg-amber-400 transition-colors shadow-sm"
+                    >
+                      Quote
+                    </Link>
+                  </div>
                 </div>
               </div>
             </article>

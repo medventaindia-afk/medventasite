@@ -25,6 +25,9 @@ export interface EnrichedBlogPost {
   specsTable: { param: string; spec: string }[];
   sections: { heading: string; content: string }[];
   faqAnswers: string[];
+  featured_image?: string;
+  image_alt?: string;
+  image_title?: string;
 }
 
 const ALL_POSTS = enrichedPosts as EnrichedBlogPost[];

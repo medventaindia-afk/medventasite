@@ -54,11 +54,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       publishedTime: post.publishedDate,
       authors: [post.author.name],
       siteName: 'MedVenta India',
+      images: [
+        {
+          url: `https://www.medventa.in/cdn/shop/blog/${post.slug}.webp`,
+          width: 1200,
+          height: 675,
+          alt: post.image_alt || `${post.title} - MedVanta India`,
+        }
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
+      images: [`https://www.medventa.in/cdn/shop/blog/${post.slug}.webp`],
     },
     keywords: [post.primaryKeyword, ...post.secondaryKeywords, ...post.entities],
   };
@@ -165,6 +174,7 @@ export default function BlogPostDetailPage({ params }: PageProps) {
           name: 'MedVenta India',
           url: 'https://www.medventa.in',
         },
+        image: `https://www.medventa.in/cdn/shop/blog/${post.slug}.webp`,
         mainEntityOfPage: `https://www.medventa.in/blog/${post.slug}`,
       },
       {
@@ -274,6 +284,27 @@ export default function BlogPostDetailPage({ params }: PageProps) {
                   <p className="font-bold text-[#0F2D4E]">ISO 13485:2016 Certified Facility</p>
                   <p className="text-slate-500">CDSCO / CE 0123 / US FDA 510(k)</p>
                   <p className="text-[11px] text-slate-400 mt-0.5">Read time: {post.readTime} &bull; Updated Sept 2026</p>
+                </div>
+              </div>
+            </div>
+
+            {/* High-Resolution Hero Visual */}
+            <div className="my-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md">
+              <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-900">
+                <img
+                  src={post.featured_image || `/cdn/shop/blog/${post.slug}.webp`}
+                  alt={post.image_alt || `${post.title} - Institutional Medical Procurement MedVanta`}
+                  className="h-full w-full object-cover"
+                  loading="eager"
+                />
+                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950/85 via-slate-950/40 to-transparent p-4 sm:p-5 flex flex-wrap items-center justify-between gap-2 text-white">
+                  <span className="text-xs font-semibold tracking-wide flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-emerald-400"></span>
+                    Verified Clinical Procurement Specimen &bull; MedVanta Healthcare Network
+                  </span>
+                  <span className="text-[11px] text-slate-300 font-mono">
+                    ISO 13485:2016 &bull; CDSCO Class C &bull; CE 0123
+                  </span>
                 </div>
               </div>
             </div>
@@ -480,6 +511,116 @@ export default function BlogPostDetailPage({ params }: PageProps) {
                 ))}
               </div>
             </div>
+
+            {/* Rich Internal Linking Hub for SEO Authority */}
+            <div className="my-10 rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-6 sm:p-8 shadow-sm">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#046e82] mb-3">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                </svg>
+                Institutional Supply Network &bull; Internal Sourcing Corridors
+              </div>
+              <h3 className="text-lg font-bold text-[#0F2D4E] mb-4">
+                Connected Procurement Corridors &amp; Verified Hospital Supply Lines
+              </h3>
+
+              {/* Grid 1: Medical Categories */}
+              <div className="mb-6">
+                <h4 className="text-xs font-bold uppercase text-slate-500 mb-2.5">
+                  Core Clinical Categories
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  <Link href="/collections/sutures-wound-closure" className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-[#0F2D4E] hover:border-[#046e82] hover:text-[#046e82] transition-colors shadow-2xs">
+                    Sutures &amp; Wound Closure
+                  </Link>
+                  <Link href="/collections/vascular-access-infusion" className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-[#0F2D4E] hover:border-[#046e82] hover:text-[#046e82] transition-colors shadow-2xs">
+                    Vascular Access &amp; CVC Kits
+                  </Link>
+                  <Link href="/collections/laboratory-diagnostics" className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-[#0F2D4E] hover:border-[#046e82] hover:text-[#046e82] transition-colors shadow-2xs">
+                    Diagnostic Tubes &amp; Vacutainer
+                  </Link>
+                  <Link href="/collections/diagnostic-instruments-ent" className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-[#0F2D4E] hover:border-[#046e82] hover:text-[#046e82] transition-colors shadow-2xs">
+                    Diagnostic Sets &amp; ENT Otoscopes
+                  </Link>
+                  <Link href="/collections/surgical-stapling-ligation" className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-[#0F2D4E] hover:border-[#046e82] hover:text-[#046e82] transition-colors shadow-2xs">
+                    Surgical Staplers &amp; Ligation Clips
+                  </Link>
+                  <Link href="/collections/hospital-cold-chain-logistics" className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-[#0F2D4E] hover:border-[#046e82] hover:text-[#046e82] transition-colors shadow-2xs">
+                    Cold-Chain &amp; Export Logistics
+                  </Link>
+                </div>
+              </div>
+
+              {/* Grid 2: Regional Priority Supply Hubs */}
+              <div className="mb-6">
+                <h4 className="text-xs font-bold uppercase text-slate-500 mb-2.5">
+                  Priority Metro Supply Corridors (Same-Day / Next-Day Dispatch)
+                </h4>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                  <Link href="/in/delhi-ncr" className="rounded-md border border-slate-200 bg-white p-2.5 text-center text-xs font-medium text-slate-800 hover:border-[#046e82] hover:text-[#046e82] transition-colors">
+                    Delhi NCR (AIIMS / Max)
+                  </Link>
+                  <Link href="/in/mumbai" className="rounded-md border border-slate-200 bg-white p-2.5 text-center text-xs font-medium text-slate-800 hover:border-[#046e82] hover:text-[#046e82] transition-colors">
+                    Mumbai (Apollo / Hinduja)
+                  </Link>
+                  <Link href="/in/bengaluru" className="rounded-md border border-slate-200 bg-white p-2.5 text-center text-xs font-medium text-slate-800 hover:border-[#046e82] hover:text-[#046e82] transition-colors">
+                    Bengaluru (Manipal / Narayana)
+                  </Link>
+                  <Link href="/in/hyderabad" className="rounded-md border border-slate-200 bg-white p-2.5 text-center text-xs font-medium text-slate-800 hover:border-[#046e82] hover:text-[#046e82] transition-colors">
+                    Hyderabad (Yashoda / KIMS)
+                  </Link>
+                  <Link href="/in/chennai" className="rounded-md border border-slate-200 bg-white p-2.5 text-center text-xs font-medium text-slate-800 hover:border-[#046e82] hover:text-[#046e82] transition-colors">
+                    Chennai (Apollo / Fortis)
+                  </Link>
+                  <Link href="/in/kolkata" className="rounded-md border border-slate-200 bg-white p-2.5 text-center text-xs font-medium text-slate-800 hover:border-[#046e82] hover:text-[#046e82] transition-colors">
+                    Kolkata Eastern Corridor
+                  </Link>
+                  <Link href="/in/ahmedabad" className="rounded-md border border-slate-200 bg-white p-2.5 text-center text-xs font-medium text-slate-800 hover:border-[#046e82] hover:text-[#046e82] transition-colors">
+                    Ahmedabad Western Hub
+                  </Link>
+                  <Link href="/in/pune" className="rounded-md border border-slate-200 bg-white p-2.5 text-center text-xs font-medium text-slate-800 hover:border-[#046e82] hover:text-[#046e82] transition-colors">
+                    Pune Medical Corridor
+                  </Link>
+                </div>
+              </div>
+
+              {/* Grid 3: Catalog Products Fast-Track */}
+              <div>
+                <h4 className="text-xs font-bold uppercase text-slate-500 mb-2.5">
+                  Verified Catalog SKUs Available for Bulk Institutional Invoicing
+                </h4>
+                <div className="flex flex-wrap gap-2 text-xs">
+                  <Link href="/products/medtronic-covidien-polysorb-suture" className="text-[#046e82] hover:underline font-semibold">
+                    Medtronic Covidien Polysorb
+                  </Link>
+                  <span className="text-slate-300">&bull;</span>
+                  <Link href="/products/ethicon-prolene-polypropylene-suture" className="text-[#046e82] hover:underline font-semibold">
+                    Ethicon Prolene Suture
+                  </Link>
+                  <span className="text-slate-300">&bull;</span>
+                  <Link href="/products/cook-medical-spectrum-triple-lumen-cvc" className="text-[#046e82] hover:underline font-semibold">
+                    Cook Medical Triple Lumen CVC
+                  </Link>
+                  <span className="text-slate-300">&bull;</span>
+                  <Link href="/products/bd-insyte-autoguard-bc-shielded-catheter" className="text-[#046e82] hover:underline font-semibold">
+                    BD Insyte Autoguard BC
+                  </Link>
+                  <span className="text-slate-300">&bull;</span>
+                  <Link href="/products/bd-vacutainer-sst-blood-collection-tubes" className="text-[#046e82] hover:underline font-semibold">
+                    BD Vacutainer SST Tubes
+                  </Link>
+                  <span className="text-slate-300">&bull;</span>
+                  <Link href="/products/sarstedt-microvette-500-capillary-blood-tubes" className="text-[#046e82] hover:underline font-semibold">
+                    Sarstedt Microvette 500
+                  </Link>
+                  <span className="text-slate-300">&bull;</span>
+                  <Link href="/products/welch-allyn-macroview-led-basic-diagnostic-set" className="text-[#046e82] hover:underline font-semibold">
+                    Welch Allyn MacroView LED Otoscope
+                  </Link>
+                </div>
+              </div>
+            </div>
           </article>
 
           {/* Right Sidebar: Contextual Conversion Widgets (4 Cols) */}
@@ -545,7 +686,7 @@ export default function BlogPostDetailPage({ params }: PageProps) {
                   </Link>
 
                   <a
-                    href={`https://wa.me/919999999999?text=${whatsappMessage}`}
+                    href={`https://wa.me/919958044704?text=${whatsappMessage}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 w-full rounded-lg border border-emerald-300 bg-emerald-50 py-2.5 text-xs font-semibold text-emerald-800 hover:bg-emerald-100 transition-colors"

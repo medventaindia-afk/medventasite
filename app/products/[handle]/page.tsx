@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import AnnouncementBar from '@/components/AnnouncementBar';
@@ -8,6 +8,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { PRODUCTS, getProductByHandle, type Product } from '@/data/products';
 import { useCart } from '@/context/CartContext';
+import blogsData from '@/data/seo_blog_enriched.json';
 
 interface Review {
   id: string;
@@ -125,6 +126,38 @@ export default function ProductDetailPage({ params: propParams }: { params?: { h
   };
 
   const savings = product.compareAtPrice ? product.compareAtPrice - product.price : 0;
+
+  // Match related clinical knowledge base articles
+  const relevantBlogs = useMemo(() => {
+    if (!product) return [];
+    const pTitle = (product.name || '').toLowerCase();
+    const pHandle = product.handle.toLowerCase();
+    return (blogsData as any[]).filter(b => {
+      const bTitle = b.title.toLowerCase();
+      if (pHandle.includes('polysorb') || pHandle.includes('suture') || pTitle.includes('suture')) {
+        return bTitle.includes('vicryl') || bTitle.includes('suture') || bTitle.includes('polysorb');
+      }
+      if (pHandle.includes('prolene')) {
+        return bTitle.includes('prolene') || bTitle.includes('suture');
+      }
+      if (pHandle.includes('cvc') || pHandle.includes('triple-lumen') || pTitle.includes('lumen')) {
+        return bTitle.includes('cvc') || bTitle.includes('triple lumen') || bTitle.includes('vascular');
+      }
+      if (pHandle.includes('insyte') || pHandle.includes('autoguard') || pTitle.includes('cannula')) {
+        return bTitle.includes('autoguard') || bTitle.includes('cannula') || bTitle.includes('iv');
+      }
+      if (pHandle.includes('vacutainer') || pTitle.includes('vacutainer')) {
+        return bTitle.includes('vacutainer') || bTitle.includes('blood collection') || bTitle.includes('tube');
+      }
+      if (pHandle.includes('microvette') || pTitle.includes('sarstedt')) {
+        return bTitle.includes('sarstedt') || bTitle.includes('capillary') || bTitle.includes('tube');
+      }
+      if (pHandle.includes('welch-allyn') || pHandle.includes('otoscope') || pTitle.includes('otoscope')) {
+        return bTitle.includes('welch allyn') || bTitle.includes('otoscope') || bTitle.includes('ophthalmoscope');
+      }
+      return bTitle.includes('procurement') || bTitle.includes('tender');
+    }).slice(0, 3);
+  }, [product]);
 
   return (
     <div className="template-product" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif', color: '#1d1d1d', background: '#ffffff' }}>
@@ -725,6 +758,61 @@ export default function ProductDetailPage({ params: propParams }: { params?: { h
             ))}
           </div>
         </section>
+
+        {/* Related Clinical & Regulatory Knowledge Base Dossiers */}
+        {relevantBlogs.length > 0 && (
+          <section style={{ maxWidth: '1360px', margin: '0 auto', padding: '0 20px 60px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '24px', flexWrap: 'wrap', gap: '12px' }}>
+              <div>
+                <span style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', color: '#046e82', letterSpacing: '0.05em' }}>
+                  Institutional Clinical Authority
+                </span>
+                <h2 style={{ fontSize: '22px', fontWeight: 700, color: '#1d1d1d', margin: '4px 0 0 0' }}>
+                  Verified Sourcing Guides for {product.name}
+                </h2>
+              </div>
+              <Link href="/blog" style={{ fontSize: '13px', color: '#046e82', fontWeight: 700, textDecoration: 'none' }}>
+                View All 100 Technical Dossiers →
+              </Link>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
+              {relevantBlogs.map((b: any) => (
+                <div key={b.slug} style={{ background: '#ffffff', border: '1px solid #e5e7eb', borderRadius: '10px', overflow: 'hidden', display: 'flex', flexDirection: 'column', boxShadow: '0 2px 6px rgba(0,0,0,0.03)' }}>
+                  <Link href={`/blog/${b.slug}`} style={{ display: 'block', position: 'relative', aspectRatio: '16/9', overflow: 'hidden', background: '#0F2D4E' }}>
+                    <img
+                      src={b.featured_image || `/cdn/shop/blog/${b.slug}.webp`}
+                      alt={b.title}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      loading="lazy"
+                    />
+                    <span style={{ position: 'absolute', bottom: '8px', left: '8px', background: 'rgba(15, 45, 78, 0.85)', color: '#fff', fontSize: '10px', fontWeight: 700, padding: '3px 8px', borderRadius: '4px' }}>
+                      {b.category}
+                    </span>
+                  </Link>
+                  <div style={{ padding: '18px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                    <div>
+                      <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#0F2D4E', margin: '0 0 8px 0', lineHeight: 1.35 }}>
+                        <Link href={`/blog/${b.slug}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                          {b.title}
+                        </Link>
+                      </h3>
+                      <p style={{ fontSize: '12.5px', color: '#64748b', margin: '0 0 14px 0', lineHeight: 1.5, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                        {b.directAnswer}
+                      </p>
+                    </div>
+                    <div style={{ borderTop: '1px solid #f1f5f9', paddingTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                      <Link href={`/blog/${b.slug}`} style={{ fontSize: '12px', fontWeight: 700, color: '#046e82', textDecoration: 'none' }}>
+                        Read Technical Guide →
+                      </Link>
+                      <span style={{ fontSize: '11px', color: '#94a3b8' }}>{b.readTime}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Dynamic Highlights Banner (Empire Theme Standard) */}
         <section style={{ borderTop: '1px solid #e5e7eb', background: '#f8fafc', padding: '36px 20px' }}>

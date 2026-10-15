@@ -11,6 +11,18 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { totalItems } = useCart();
 
+  const [searchCategory, setSearchCategory] = useState('');
+
+  const categoryNames: Record<string, string> = {
+    '': 'All categories',
+    'sutures-wound-closure': 'Sutures & Wound',
+    'vascular-access-infusion': 'Vascular Access',
+    'laboratory-diagnostics': 'Lab Diagnostics',
+    'diagnostic-instruments-ent': 'Diagnostic & ENT',
+    'surgical-stapling-ligation': 'Surgical Stapling',
+    'hospital-cold-chain-logistics': 'Hospital Logistics'
+  };
+
   return (
     <header className="site-header" style={{ position: 'sticky', top: 0, zIndex: 100 }}>
       {/* Main header row */}
@@ -53,12 +65,50 @@ export default function Navbar() {
               aria-label="Product"
             >
               <div className="form-field no-label">
+                <span className="form-field-select-wrapper live-search-filter-wrapper">
+                  <select
+                    className="live-search-filter"
+                    id="live-search-filter-nav"
+                    name="category"
+                    aria-label="Filter products by category"
+                    value={searchCategory}
+                    onChange={(e) => setSearchCategory(e.target.value)}
+                  >
+                    <option value="">All categories</option>
+                    <option value="sutures-wound-closure">Sutures &amp; Wound Closure</option>
+                    <option value="vascular-access-infusion">Vascular Access &amp; Infusion</option>
+                    <option value="laboratory-diagnostics">Laboratory Diagnostics</option>
+                    <option value="diagnostic-instruments-ent">Diagnostic Instruments &amp; ENT</option>
+                    <option value="surgical-stapling-ligation">Surgical Stapling &amp; Ligation</option>
+                    <option value="hospital-cold-chain-logistics">Hospital &amp; Cold-Chain Logistics</option>
+                  </select>
+                  <label
+                    className="live-search-filter-label form-field-select"
+                    htmlFor="live-search-filter-nav"
+                  >
+                    {categoryNames[searchCategory] || 'All categories'}
+                  </label>
+                  <svg
+                    aria-hidden="true"
+                    focusable="false"
+                    role="presentation"
+                    width="8"
+                    height="6"
+                    viewBox="0 0 8 6"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="icon-chevron-down"
+                  >
+                    <path className="icon-chevron-down-left" d="M4 4.5L7 1.5" stroke="currentColor" strokeWidth="1.25" strokeLinecap="square"/>
+                    <path className="icon-chevron-down-right" d="M4 4.5L1 1.5" stroke="currentColor" strokeWidth="1.25" strokeLinecap="square"/>
+                  </svg>
+                </span>
                 <input
                   className="form-field-input live-search-form-field"
                   type="text"
                   name="q"
                   aria-label="Search"
-                  placeholder="What are you looking for—"
+                  placeholder="What are you looking for?"
                   autoComplete="off"
                 />
                 <button className="live-search-button" type="submit" aria-label="Search">
