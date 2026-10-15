@@ -162,16 +162,16 @@ export default function CheckoutPage() {
     <div style={{ minHeight: '100vh', background: '#f8fafc', fontFamily: 'var(--font-body, "Libre Franklin", sans-serif)' }}>
 
       {/* Checkout Header */}
-      <header style={{ background: '#ffffff', borderBottom: '1px solid #e2e8f0', padding: '16px 20px' }}>
+      <header style={{ background: '#000000', borderBottom: '1px solid #1e293b', padding: '14px 20px' }}>
         <div style={{ maxWidth: '1240px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
             <img
               src="/cdn/shop/files/ChatGPT_Image_Aug_13_2025_10_35_46_AM_1_579x173.png?v=1755106616"
-              alt="Medventa"
-              style={{ maxHeight: '42px', width: 'auto' }}
+              alt="MedVanta"
+              style={{ maxHeight: '44px', width: 'auto' }}
             />
           </Link>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#16a34a', fontSize: '13px', fontWeight: 700 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#4ade80', fontSize: '13px', fontWeight: 700 }}>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
               <path d="M7 11V7a5 5 0 0 1 10 0v4"/>

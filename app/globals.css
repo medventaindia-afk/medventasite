@@ -13,35 +13,31 @@ html, body {
   color: #1d1d1d;
 }
 
-/* 1. The Main Heading: Playfair Display 800 with tight negative kerning */
+/* 1. The Main Heading: Clean Clinical Sans-Serif (Inter / Libre Franklin) */
 .aesthetic-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 2.75rem;
   font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -1.5px;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
   color: #0F2D4E;
   margin-bottom: 20px;
 }
 
 @media (max-width: 768px) {
   .aesthetic-title {
-    font-size: 2.25rem;
-    letter-spacing: -0.75px;
+    font-size: 2rem;
+    letter-spacing: -0.015em;
   }
 }
 
-/* 2. Electric Blue & MedVenta Teal Gradients on accent words */
+/* 2. Medical Teal & MedVenta Amber on accent words */
 .text-gradient {
-  background: linear-gradient(135deg, #046e82 0%, #0084D1 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #046e82 !important;
 }
 
 .text-gradient-amber {
-  background: linear-gradient(135deg, #e99114 0%, #cf7b07 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #e99114 !important;
 }
 
 /* 3. The Live Pill Badge above titles */

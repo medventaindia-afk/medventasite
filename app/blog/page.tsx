@@ -80,7 +80,7 @@ export default function BlogIndexPage() {
                   </span>
                   <span className="text-xs text-slate-300">8 min read &bull; ISO 13485 Certified Facility</span>
                 </div>
-                <h2 className="mt-4 text-2xl font-bold tracking-tight sm:text-3xl text-white font-serif leading-snug">
+                <h2 className="mt-4 text-2xl font-bold tracking-tight sm:text-3xl text-white font-sans leading-snug">
                   <Link href={`/blog/${featuredPost.slug}`} className="hover:text-cyan-300 transition-colors">
                     {featuredPost.title}
                   </Link>
