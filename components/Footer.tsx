@@ -115,7 +115,9 @@ export default function Footer() {
                 </nav>
               </div>
               <div className="site-footer__row-inner-wrapper-right">
-                <p className="site-footer-copyright">© {year} Medventa</p>
+                <p className="site-footer-copyright">
+                  © {year} Medventa | This site was designed and built by <a href="https://rankursite.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>Rankur</a>
+                </p>
               </div>
             </div>
           </div>

@@ -84,3 +84,152 @@ html, body {
 .text-medvanta-teal { color: #046e82; }
 .bg-medvanta-amber { background-color: #e99114; }
 .text-medvanta-amber { color: #e99114; }
+
+/* =========================================================================
+   5. Dynamic Interactive Micro-Animations & Luxury Polish
+   ========================================================================= */
+
+/* Highlights Banner Interactive Cards */
+.highlights-banner__block {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease !important;
+  border-radius: 8px !important;
+  padding: 12px !important;
+}
+.highlights-banner__block:hover {
+  transform: translateY(-4px) !important;
+}
+.highlights-banner__icon {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+.highlights-banner__block:hover .highlights-banner__icon {
+  transform: scale(1.18) rotate(3deg) !important;
+  color: #e99114 !important;
+}
+
+/* Circular Collection Cards Zoom & Glow */
+.collection-list__item {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.collection-list__item:hover {
+  transform: translateY(-5px) !important;
+}
+.collection-list__item-image-wrapper {
+  overflow: hidden !important;
+  border-radius: 50% !important;
+  transition: box-shadow 0.35s ease, border-color 0.35s ease !important;
+}
+.collection-list__item:hover .collection-list__item-image-wrapper {
+  box-shadow: 0 10px 25px -4px rgba(4, 110, 130, 0.35) !important;
+}
+.collection-list__item img {
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.collection-list__item:hover img {
+  transform: scale(1.09) !important;
+}
+.collection-list__item-title {
+  transition: color 0.2s ease !important;
+}
+.collection-list__item:hover .collection-list__item-title {
+  color: #046e82 !important;
+}
+
+/* Trusted Healthcare Brand Logos Interactive Hover */
+.logolist--inner > div {
+  transition: transform 0.3s ease, filter 0.3s ease !important;
+  cursor: pointer;
+}
+.logolist--inner > div:hover {
+  transform: translateY(-3px) scale(1.06) !important;
+}
+.logolist--inner img {
+  transition: opacity 0.3s ease, filter 0.3s ease !important;
+}
+
+/* Shoppable Image Card Modern Lift */
+.shoppable-image-section {
+  position: relative;
+}
+.shoppable-image-section img {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease !important;
+}
+.shoppable-image-section:hover img {
+  transform: scale(1.015) !important;
+  box-shadow: 0 16px 40px -10px rgba(15, 45, 78, 0.15) !important;
+}
+
+/* FAQ Accordion Smooth Open Indicator */
+details.faq__details {
+  transition: all 0.25s ease !important;
+  border-radius: 8px !important;
+}
+details.faq__details[open] {
+  background-color: #f8fafc !important;
+}
+details.faq__details summary {
+  cursor: pointer !important;
+  user-select: none !important;
+  transition: color 0.2s ease !important;
+}
+details.faq__details summary:hover {
+  color: #046e82 !important;
+}
+
+/* Floating B2B WhatsApp / RFQ Concierge Widget */
+.floating-rfq-concierge {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #0F2D4E;
+  color: #ffffff;
+  padding: 11px 20px;
+  border-radius: 9999px;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  box-shadow: 0 10px 30px rgba(15, 45, 78, 0.35), 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.floating-rfq-concierge:hover {
+  background: #046e82;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 14px 35px rgba(4, 110, 130, 0.45);
+  color: #ffffff;
+}
+.floating-rfq-concierge .ping-dot {
+  position: relative;
+  display: flex;
+  width: 10px;
+  height: 10px;
+}
+.floating-rfq-concierge .ping-dot span:first-child {
+  position: absolute;
+  display: inline-flex;
+  height: 100%;
+  width: 100%;
+  border-radius: 9999px;
+  background-color: #10B981;
+  opacity: 0.75;
+  animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+.floating-rfq-concierge .ping-dot span:last-child {
+  position: relative;
+  display: inline-flex;
+  border-radius: 9999px;
+  height: 10px;
+  width: 10px;
+  background-color: #10B981;
+}
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
