@@ -182,6 +182,16 @@ details.faq__details summary:hover {
   border: 1px solid rgba(255, 255, 255, 0.15);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
+@media (max-width: 640px) {
+  .floating-rfq-concierge {
+    bottom: 16px;
+    right: 16px;
+    padding: 8px 14px;
+    font-size: 12px;
+    gap: 7px;
+  }
+}
+
 .floating-rfq-concierge:hover {
   background: #046e82;
   transform: translateY(-3px) scale(1.02);
@@ -392,6 +402,52 @@ select.live-search-filter option:hover,
   transform: translateY(-2px) !important;
   box-shadow: 0 8px 20px rgba(4, 110, 130, 0.35) !important;
 }
+
+/* =========================================================================
+   9. Mobile Phone & Touch Device Optimization System
+   ========================================================================= */
+
+/* Prevent iOS Safari auto-zoom on input focus */
+@media screen and (max-width: 768px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="search"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Product Detail Page Mobile Responsiveness */
+@media screen and (max-width: 900px) {
+  .product-details-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  .product-main-image-wrapper {
+    min-height: 280px !important;
+    padding: 16px !important;
+  }
+}
+
+/* Smooth Touch Scrolling for Data Tables */
+.overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+/* Mobile-friendly Button Touch Targets (Minimum 44px) */
+@media screen and (max-width: 640px) {
+  button,
+  .button,
+  .button-primary,
+  .button-secondary {
+    min-height: 44px;
+  }
+}
+
 
 
 

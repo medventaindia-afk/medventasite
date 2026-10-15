@@ -184,7 +184,7 @@ export default function ProductDetailPage({ params: propParams }: { params?: { h
 
             {/* Left Column: Gallery */}
             <div>
-              <div style={{
+              <div className="product-main-image-wrapper" style={{
                 background: '#ffffff',
                 border: '1px solid #e5e7eb',
                 borderRadius: '8px',
