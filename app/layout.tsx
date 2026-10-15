@@ -49,12 +49,28 @@ export const metadata: Metadata = {
     description: 'Sourcing over 350,000 surgical sutures, vascular catheters, diagnostic tubes & hospital equipment pan-India.',
     images: ['https://www.medventa.in/cdn/shop/files/ChatGPT_Image_Aug_13_2025_02_02_46_PM_1536x564.png'],
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon.png', type: 'image/png', sizes: '32x32' },
+      { url: '/icon-192.png', type: 'image/png', sizes: '192x192' },
+      { url: '/icon-512.png', type: 'image/png', sizes: '512x512' },
+    ],
+    apple: [
+      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html className="js no-touch" lang="en">
       <head>
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/icon.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon.png" />
         <link rel="preload" href="/cdn/fonts/libre_franklin/librefranklin_n6.c976b0b721ea92417572301ef17640150832a2b9.woff2" as="font" crossOrigin="anonymous" />
         <link rel="stylesheet" href="/cdn/shop/t/2/assets/theme.css" />
         <link rel="stylesheet" href="/cdn/shop/t/2/assets/ripple.css" />
