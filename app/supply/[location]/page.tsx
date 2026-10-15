@@ -100,8 +100,7 @@ export default function LocationMasterHubPage({ params }: PageProps) {
       <main className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         {/* City Hero */}
         <div className="mb-10 rounded-2xl border border-slate-200 bg-gradient-to-br from-[#0F2D4E] via-[#0a1e35] to-[#046e82] p-8 text-white shadow-xl sm:p-12">
-          <div className="badge-pill !bg-white/10 !border-white/20 !text-cyan-300 mb-4">
-            <span className="badge-dot"></span>
+          <div className="badge-pill !bg-white/10 !border-white/20 !text-white mb-4">
             {location.type === 'Export' ? 'International Export Gateway' : 'Domestic Healthcare Capital'} &bull; {location.hubType}
           </div>
 

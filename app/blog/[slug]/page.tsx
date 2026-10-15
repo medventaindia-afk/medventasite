@@ -253,7 +253,6 @@ export default function BlogPostDetailPage({ params }: PageProps) {
             {/* Header & Category Badge */}
             <div className="border-b border-slate-200 pb-6">
               <div className="badge-pill">
-                <span className="badge-dot"></span>
                 {post.category} &bull; Hospital Procurement Dossier
               </div>
 

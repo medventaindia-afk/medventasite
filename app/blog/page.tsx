@@ -53,10 +53,9 @@ export default function BlogIndexPage() {
       <Navbar />
 
       <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        {/* Header with Luxury Playfair Display 800 & Live Pulsing Badge */}
+        {/* Header with MedVanta Store Typography & Clean Neutral Badge (No Green Blinking) */}
         <div className="mb-12 text-center">
           <div className="badge-pill mb-3">
-            <span className="badge-dot"></span>
             Peer-Reviewed Clinical &amp; Export Intelligence
           </div>
 
@@ -71,17 +70,17 @@ export default function BlogIndexPage() {
 
         {/* Featured Flagship Article Banner */}
         {selectedCategory === 'All Categories' && !searchQuery && (
-          <div className="mb-12 overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-[#0F2D4E] to-[#0a1e35] text-white shadow-xl">
+          <div className="mb-12 overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-br from-[#111827] to-[#1f2937] text-white shadow-xl">
             <div className="grid grid-cols-1 gap-8 p-8 lg:grid-cols-12 lg:p-12 items-center">
               <div className="lg:col-span-8">
                 <div className="flex flex-wrap items-center gap-3">
-                  <span className="rounded-full bg-[#046e82]/30 px-3 py-1 text-xs font-semibold text-cyan-300 border border-cyan-400/40">
+                  <span className="rounded-full bg-amber-500/15 px-3 py-1 text-xs font-semibold text-amber-300 border border-amber-400/30">
                     Flagship Clinical Guide
                   </span>
                   <span className="text-xs text-slate-300">8 min read &bull; ISO 13485 Certified Facility</span>
                 </div>
                 <h2 className="mt-4 text-2xl font-bold tracking-tight sm:text-3xl text-white font-sans leading-snug">
-                  <Link href={`/blog/${featuredPost.slug}`} className="hover:text-cyan-300 transition-colors">
+                  <Link href={`/blog/${featuredPost.slug}`} className="hover:text-amber-400 transition-colors">
                     {featuredPost.title}
                   </Link>
                 </h2>
@@ -98,7 +97,7 @@ export default function BlogIndexPage() {
                 <div className="mt-6 flex flex-wrap gap-4">
                   <Link
                     href={`/blog/${featuredPost.slug}`}
-                    className="inline-flex items-center gap-2 rounded-lg bg-[#046e82] px-5 py-2.5 text-sm font-bold text-white hover:bg-[#015a6b] transition-colors shadow-sm"
+                    className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 text-sm font-bold text-slate-900 hover:bg-slate-100 transition-colors shadow-sm"
                   >
                     Read Technical Dossier
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -107,7 +106,7 @@ export default function BlogIndexPage() {
                   </Link>
                   <Link
                     href="/in/b2b-quote"
-                    className="inline-flex items-center gap-2 rounded-lg border border-amber-500 bg-amber-500 px-5 py-2.5 text-sm font-bold text-slate-950 hover:bg-amber-400 transition-colors"
+                    className="inline-flex items-center gap-2 rounded-lg border border-amber-500 bg-amber-500 px-5 py-2.5 text-sm font-bold text-slate-950 hover:bg-amber-400 transition-colors shadow-sm"
                   >
                     Request Institutional Quote
                   </Link>
@@ -121,7 +120,7 @@ export default function BlogIndexPage() {
                   className="h-full w-full object-cover"
                 />
                 <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950/90 to-transparent p-3 text-[11px] text-slate-300">
-                  <span className="text-emerald-400 font-semibold">&bull; Flagship Dossier</span> &bull; CDSCO / CE 0123 Verified
+                  <span className="text-amber-400 font-semibold">&bull; Flagship Dossier</span> &bull; CDSCO / CE 0123 Verified
                 </div>
               </div>
             </div>
@@ -137,7 +136,7 @@ export default function BlogIndexPage() {
                 type="button"
                 onClick={() => setSelectedBucket('All')}
                 className={`rounded-md px-3.5 py-1.5 text-xs font-semibold transition-colors ${
-                  selectedBucket === 'All' ? 'bg-[#0F2D4E] text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
+                  selectedBucket === 'All' ? 'bg-[#111827] text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 All Procurement (100)
@@ -146,7 +145,7 @@ export default function BlogIndexPage() {
                 type="button"
                 onClick={() => setSelectedBucket('Export')}
                 className={`rounded-md px-3.5 py-1.5 text-xs font-semibold transition-colors ${
-                  selectedBucket === 'Export' ? 'bg-[#0F2D4E] text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
+                  selectedBucket === 'Export' ? 'bg-[#111827] text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 Global Export &amp; Tenders (50)
@@ -155,7 +154,7 @@ export default function BlogIndexPage() {
                 type="button"
                 onClick={() => setSelectedBucket('Domestic')}
                 className={`rounded-md px-3.5 py-1.5 text-xs font-semibold transition-colors ${
-                  selectedBucket === 'Domestic' ? 'bg-[#0F2D4E] text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
+                  selectedBucket === 'Domestic' ? 'bg-[#111827] text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 Domestic India B2B (50)
@@ -169,7 +168,7 @@ export default function BlogIndexPage() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search by keyword, product, port, entity (e.g. SFDA, Vicryl, CIF)..."
-                className="w-full rounded-lg border border-slate-300 py-2 pl-10 pr-4 text-sm placeholder-slate-400 focus:border-[#046e82] focus:outline-none focus:ring-1 focus:ring-[#046e82]"
+                className="w-full rounded-lg border border-slate-300 py-2 pl-10 pr-4 text-sm placeholder-slate-400 focus:border-[#e99114] focus:outline-none focus:ring-1 focus:ring-[#e99114]"
               />
               <svg className="absolute left-3 top-2.5 h-4 w-4 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <circle cx="11" cy="11" r="8"/>
@@ -195,7 +194,7 @@ export default function BlogIndexPage() {
                 onClick={() => setSelectedCategory(cat)}
                 className={`rounded-full px-3 py-1 text-xs font-medium transition-all ${
                   selectedCategory === cat
-                    ? 'bg-[#046e82] text-white shadow-sm font-semibold'
+                    ? 'bg-[#111827] text-white shadow-sm font-semibold'
                     : 'border border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-100'
                 }`}
               >
@@ -216,7 +215,7 @@ export default function BlogIndexPage() {
           {filteredPosts.map((post) => (
             <article
               key={post.id}
-              className="flex flex-col justify-between rounded-xl border border-slate-200 bg-white overflow-hidden shadow-sm transition-all hover:border-[#046e82] hover:shadow-md group"
+              className="flex flex-col justify-between rounded-xl border border-slate-200 bg-white overflow-hidden shadow-sm transition-all hover:border-slate-300 hover:shadow-md group"
             >
               {/* Thumbnail Image */}
               <Link href={`/blog/${post.slug}`} className="block relative aspect-[16/9] w-full overflow-hidden bg-slate-100">
@@ -242,13 +241,13 @@ export default function BlogIndexPage() {
                     </span>
                   </div>
 
-                  <h3 className="text-base font-bold leading-snug text-[#0F2D4E] group-hover:text-[#046e82] transition-colors">
+                  <h3 className="text-base font-bold leading-snug text-[#111827] group-hover:text-[#e99114] transition-colors">
                     <Link href={`/blog/${post.slug}`}>
                       {post.title}
                     </Link>
                   </h3>
 
-                  <p className="mt-2 text-xs font-medium text-[#046e82]">
+                  <p className="mt-2 text-xs font-medium text-slate-600">
                     <strong>Target Focus:</strong> {post.primaryKeyword}
                   </p>
 
@@ -273,7 +272,7 @@ export default function BlogIndexPage() {
                   <div className="flex items-center justify-between gap-2">
                     <Link
                       href={`/blog/${post.slug}`}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[#046e82] hover:text-[#015a6b]"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[#111827] hover:text-[#e99114]"
                     >
                       View Specifications &amp; Dossier
                       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

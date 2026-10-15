@@ -146,7 +146,6 @@ export default function SupplyCategoryPage({ params }: PageProps) {
         {/* Hero Section with Playfair Display 800 & Live Pulsing Badge */}
         <div className="mb-10 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
           <div className="badge-pill mb-3">
-            <span className="badge-dot"></span>
             {location.name} Supply Corridor &bull; HSN {category.hsnCode.split(' ')[0]}
           </div>
 
