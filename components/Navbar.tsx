@@ -4,7 +4,9 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useCart } from '@/context/CartContext';
 
-// Original site nav: Home | Catalog | Contact | [Request a Quote CTA button]
+import searchCategories from '@/data/searchCategories.json';
+
+// Original site nav: Home | Catalog | Knowledge Base | Supply Network | Contact | [Request a Quote CTA button]
 // Matches the Empire theme navigation from the extracted header HTML exactly.
 
 export default function Navbar() {
@@ -12,16 +14,7 @@ export default function Navbar() {
   const { totalItems } = useCart();
 
   const [searchCategory, setSearchCategory] = useState('');
-
-  const categoryNames: Record<string, string> = {
-    '': 'All categories',
-    'sutures-wound-closure': 'Sutures & Wound',
-    'vascular-access-infusion': 'Vascular Access',
-    'laboratory-diagnostics': 'Lab Diagnostics',
-    'diagnostic-instruments-ent': 'Diagnostic & ENT',
-    'surgical-stapling-ligation': 'Surgical Stapling',
-    'hospital-cold-chain-logistics': 'Hospital Logistics'
-  };
+  const [categoryLabel, setCategoryLabel] = useState('All categories');
 
   return (
     <header className="site-header" style={{ position: 'sticky', top: 0, zIndex: 100 }}>
@@ -72,21 +65,26 @@ export default function Navbar() {
                     name="category"
                     aria-label="Filter products by category"
                     value={searchCategory}
-                    onChange={(e) => setSearchCategory(e.target.value)}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      setSearchCategory(val);
+                      const text = e.target.options[e.target.selectedIndex]?.text || 'All categories';
+                      setCategoryLabel(text);
+                    }}
                   >
                     <option value="">All categories</option>
-                    <option value="sutures-wound-closure">Sutures &amp; Wound Closure</option>
-                    <option value="vascular-access-infusion">Vascular Access &amp; Infusion</option>
-                    <option value="laboratory-diagnostics">Laboratory Diagnostics</option>
-                    <option value="diagnostic-instruments-ent">Diagnostic Instruments &amp; ENT</option>
-                    <option value="surgical-stapling-ligation">Surgical Stapling &amp; Ligation</option>
-                    <option value="hospital-cold-chain-logistics">Hospital &amp; Cold-Chain Logistics</option>
+                    <option value="" disabled>------</option>
+                    {searchCategories.map((c, idx) => (
+                      <option key={idx} value={c.value}>
+                        {c.label}
+                      </option>
+                    ))}
                   </select>
                   <label
                     className="live-search-filter-label form-field-select"
                     htmlFor="live-search-filter-nav"
                   >
-                    {categoryNames[searchCategory] || 'All categories'}
+                    {categoryLabel}
                   </label>
                   <svg
                     aria-hidden="true"

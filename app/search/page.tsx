@@ -21,12 +21,15 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
   const query = (searchParams.q || '').trim().toLowerCase();
   const categoryFilter = (searchParams.category || '').trim().toLowerCase();
 
+  const cleanCat = categoryFilter.replace(/^product_type:\s*/i, '').replace(/[-_]/g, ' ').trim();
+
   // Filter products using exact Product properties (name, brand, sku, specs, description)
   const matchedProducts = PRODUCTS.filter((p) => {
     const matchesCategory =
-      !categoryFilter ||
-      p.category.toLowerCase().includes(categoryFilter) ||
-      p.categorySlug.toLowerCase().includes(categoryFilter);
+      !cleanCat ||
+      p.category.toLowerCase().includes(cleanCat) ||
+      p.categorySlug.toLowerCase().includes(categoryFilter) ||
+      p.name.toLowerCase().includes(cleanCat);
 
     if (!query) return matchesCategory;
 
@@ -43,14 +46,20 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
   });
 
   // Filter relevant knowledge base articles
-  const matchedBlogs = query
-    ? (blogsData as any[]).filter((b) => {
-        const titleMatch = b.title?.toLowerCase().includes(query);
-        const kwMatch = b.keywords?.some((k: string) => k.toLowerCase().includes(query));
-        const excerptMatch = b.directAnswer?.toLowerCase().includes(query);
-        return titleMatch || kwMatch || excerptMatch;
-      }).slice(0, 4)
-    : [];
+  const matchedBlogs = (blogsData as any[]).filter((b) => {
+    if (query) {
+      const titleMatch = b.title?.toLowerCase().includes(query);
+      const kwMatch = b.keywords?.some((k: string) => k.toLowerCase().includes(query));
+      const excerptMatch = b.directAnswer?.toLowerCase().includes(query);
+      return titleMatch || kwMatch || excerptMatch;
+    }
+    if (cleanCat) {
+      const catMatch = b.category?.toLowerCase().includes(cleanCat);
+      const titleMatch = b.title?.toLowerCase().includes(cleanCat);
+      return catMatch || titleMatch;
+    }
+    return false;
+  }).slice(0, 4);
 
   return (
     <div className="site-wrapper" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: '#fcfcfc' }}>

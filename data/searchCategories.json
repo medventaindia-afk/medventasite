@@ -1,0 +1,1974 @@
+[
+  {
+    "value": "",
+    "label": "All categories"
+  },
+  {
+    "value": "product_type:3-Pin Connector",
+    "label": "3-Pin Connector"
+  },
+  {
+    "value": "product_type:Abdominal Binders",
+    "label": "Abdominal Binders"
+  },
+  {
+    "value": "product_type:Abdominal Fetal Monitoring Belt",
+    "label": "Abdominal Fetal Monitoring Belt"
+  },
+  {
+    "value": "product_type:Absorbent Dressing",
+    "label": "Absorbent Dressing"
+  },
+  {
+    "value": "product_type:Absorbent Underwear",
+    "label": "Absorbent Underwear"
+  },
+  {
+    "value": "product_type:Accessories",
+    "label": "Accessories"
+  },
+  {
+    "value": "product_type:Accessories &amp; Parts",
+    "label": "Accessories & Parts"
+  },
+  {
+    "value": "product_type:Accessory",
+    "label": "Accessory"
+  },
+  {
+    "value": "product_type:Additional Brace &amp; Support",
+    "label": "Additional Brace & Support"
+  },
+  {
+    "value": "product_type:Adhesive Bandage",
+    "label": "Adhesive Bandage"
+  },
+  {
+    "value": "product_type:Administration Accessories",
+    "label": "Administration Accessories"
+  },
+  {
+    "value": "product_type:Admission &amp; Amenity Kit",
+    "label": "Admission & Amenity Kit"
+  },
+  {
+    "value": "product_type:Adult Brief",
+    "label": "Adult Brief"
+  },
+  {
+    "value": "product_type:Aerosol Face Mask",
+    "label": "Aerosol Face Mask"
+  },
+  {
+    "value": "product_type:All Other",
+    "label": "All Other"
+  },
+  {
+    "value": "product_type:Allergy",
+    "label": "Allergy"
+  },
+  {
+    "value": "product_type:Allergy Testing",
+    "label": "Allergy Testing"
+  },
+  {
+    "value": "product_type:Ambulatory Accessories",
+    "label": "Ambulatory Accessories"
+  },
+  {
+    "value": "product_type:Amniocentesis Kit, Pack &amp; Tray",
+    "label": "Amniocentesis Kit, Pack & Tray"
+  },
+  {
+    "value": "product_type:Ancillary Procedure Kit &amp; Kit, Pack &amp; Tray",
+    "label": "Ancillary Procedure Kit & Kit, Pack & Tray"
+  },
+  {
+    "value": "product_type:Ancillary Products",
+    "label": "Ancillary Products"
+  },
+  {
+    "value": "product_type:Anesthesia, Pain Management Kit, Pack &amp; Tray",
+    "label": "Anesthesia, Pain Management Kit, Pack & Tray"
+  },
+  {
+    "value": "product_type:Antifungal",
+    "label": "Antifungal"
+  },
+  {
+    "value": "product_type:Applicator",
+    "label": "Applicator"
+  },
+  {
+    "value": "product_type:Arm, Elbow, Wrist &amp; Forearm",
+    "label": "Arm, Elbow, Wrist & Forearm"
+  },
+  {
+    "value": "product_type:Arterial Blood Sampling",
+    "label": "Arterial Blood Sampling"
+  },
+  {
+    "value": "product_type:Arthrogram Kit, Pack &amp; Tray",
+    "label": "Arthrogram Kit, Pack & Tray"
+  },
+  {
+    "value": "product_type:Back",
+    "label": "Back"
+  },
+  {
+    "value": "product_type:Back Supports",
+    "label": "Back Supports"
+  },
+  {
+    "value": "product_type:Bags and Meter Bags",
+    "label": "Bags and Meter Bags"
+  },
+  {
+    "value": "product_type:Bandages",
+    "label": "Bandages"
+  },
+  {
+    "value": "product_type:Basic Diagnostic Kit, Pack &amp; Tray",
+    "label": "Basic Diagnostic Kit, Pack & Tray"
+  },
+  {
+    "value": "product_type:Bathing and Hygiene Aids",
+    "label": "Bathing and Hygiene Aids"
+  },
+  {
+    "value": "product_type:Bed Safety Rails",
+    "label": "Bed Safety Rails"
+  },
+  {
+    "value": "product_type:Bedpan",
+    "label": "Bedpan"
+  },
+  {
+    "value": "product_type:Bikini &amp; Thong",
+    "label": "Bikini & Thong"
+  },
+  {
+    "value": "product_type:Biohazard &amp; Infectious Waste Bag",
+    "label": "Biohazard & Infectious Waste Bag"
+  },
+  {
+    "value": "product_type:Biohazard Specimen Bags",
+    "label": "Biohazard Specimen Bags"
+  },
+  {
+    "value": "product_type:Biopsy",
+    "label": "Biopsy"
+  },
+  {
+    "value": "product_type:Biopsy Forceps",
+    "label": "Biopsy Forceps"
+  },
+  {
+    "value": "product_type:Biopsy Kit, Pack &amp; Tray",
+    "label": "Biopsy Kit, Pack & Tray"
+  },
+  {
+    "value": "product_type:Biopsy Needle",
+    "label": "Biopsy Needle"
+  },
+  {
+    "value": "product_type:Biopsy Punch",
+    "label": "Biopsy Punch"
+  },
+  {
+    "value": "product_type:Blood Bank Centrifuge",
+    "label": "Blood Bank Centrifuge"
+  },
+  {
+    "value": "product_type:Blood Collection Kit, Pack &amp; Tray",
+    "label": "Blood Collection Kit, Pack & Tray"
+  },
+  {
+    "value": "product_type:Blood Glucose Test Strips",
+    "label": "Blood Glucose Test Strips"
+  },
+  {
+    "value": "product_type:Book &amp; Brochure",
+    "label": "Book & Brochure"
+  },
+  {
+    "value": "product_type:Book, Manual &amp; Pamphlet",
+    "label": "Book, Manual & Pamphlet"
+  },
+  {
+    "value": "product_type:Bulb Evacuators &amp; Reservoirs",
+    "label": "Bulb Evacuators & Reservoirs"
+  },
+  {
+    "value": "product_type:Burn Dressing",
+    "label": "Burn Dressing"
+  },
+  {
+    "value": "product_type:Calcium Alginate",
+    "label": "Calcium Alginate"
+  },
+  {
+    "value": "product_type:Cannisters/Reservoir",
+    "label": "Cannisters/Reservoir"
+  },
+  {
+    "value": "product_type:Cannulas",
+    "label": "Cannulas"
+  },
+  {
+    "value": "product_type:Capillary, Hematocrit Tube",
+    "label": "Capillary, Hematocrit Tube"
+  },
+  {
+    "value": "product_type:Cappers, Toppers &amp; Flange Plugs",
+    "label": "Cappers, Toppers & Flange Plugs"
+  },
+  {
+    "value": "product_type:Cardiac Catheter &amp; Vascular Accessories",
+    "label": "Cardiac Catheter & Vascular Accessories"
+  },
+  {
+    "value": "product_type:Cardiac Output Y-Connector Cable",
+    "label": "Cardiac Output Y-Connector Cable"
+  },
+  {
+    "value": "product_type:Carex Thera-Med Ice Gel Cryo Packs",
+    "label": "Carex Thera-Med Ice Gel Cryo Packs"
+  },
+  {
+    "value": "product_type:Casting &amp; Splinting",
+    "label": "Casting & Splinting"
+  },
+  {
+    "value": "product_type:Catheter Lab Kit",
+    "label": "Catheter Lab Kit"
+  },
+  {
+    "value": "product_type:Catheter Repair Kits",
+    "label": "Catheter Repair Kits"
+  },
+  {
+    "value": "product_type:Catheter Tip",
+    "label": "Catheter Tip"
+  },
+  {
+    "value": "product_type:Centrifuge",
+    "label": "Centrifuge"
+  },
+  {
+    "value": "product_type:Centrifuge Label",
+    "label": "Centrifuge Label"
+  },
+  {
+    "value": "product_type:Centrifuge Tubes",
+    "label": "Centrifuge Tubes"
+  },
+  {
+    "value": "product_type:Centrifuges",
+    "label": "Centrifuges"
+  },
+  {
+    "value": "product_type:Cervical collar",
+    "label": "Cervical collar"
+  },
+  {
+    "value": "product_type:Chart, Poster &amp; Sign",
+    "label": "Chart, Poster & Sign"
+  },
+  {
+    "value": "product_type:Chemistry",
+    "label": "Chemistry"
+  },
+  {
+    "value": "product_type:Circumcision Kit, Pack &amp; Tray",
+    "label": "Circumcision Kit, Pack & Tray"
+  },
+  {
+    "value": "product_type:Clamp",
+    "label": "Clamp"
+  },
+  {
+    "value": "product_type:Clavicle",
+    "label": "Clavicle"
+  },
+  {
+    "value": "product_type:Cleanroom Wipe",
+    "label": "Cleanroom Wipe"
+  },
+  {
+    "value": "product_type:Clinical Laboratory Accessories",
+    "label": "Clinical Laboratory Accessories"
+  },
+  {
+    "value": "product_type:Clip",
+    "label": "Clip"
+  },
+  {
+    "value": "product_type:Cloth Electrodes",
+    "label": "Cloth Electrodes"
+  },
+  {
+    "value": "product_type:Coated Instrument",
+    "label": "Coated Instrument"
+  },
+  {
+    "value": "product_type:Coding Book",
+    "label": "Coding Book"
+  },
+  {
+    "value": "product_type:Collagen Dressing",
+    "label": "Collagen Dressing"
+  },
+  {
+    "value": "product_type:Colon &amp; Rectal Tube",
+    "label": "Colon & Rectal Tube"
+  },
+  {
+    "value": "product_type:Compression Bandages",
+    "label": "Compression Bandages"
+  },
+  {
+    "value": "product_type:Consumables",
+    "label": "Consumables"
+  },
+  {
+    "value": "product_type:Container",
+    "label": "Container"
+  },
+  {
+    "value": "product_type:Control Syringe",
+    "label": "Control Syringe"
+  },
+  {
+    "value": "product_type:Cotton Products &amp; Dispenser",
+    "label": "Cotton Products & Dispenser"
+  },
+  {
+    "value": "product_type:Counterbalance Assembly",
+    "label": "Counterbalance Assembly"
+  },
+  {
+    "value": "product_type:Cream",
+    "label": "Cream"
+  },
+  {
+    "value": "product_type:Cryo Freeze Boxes",
+    "label": "Cryo Freeze Boxes"
+  },
+  {
+    "value": "product_type:Cryovials",
+    "label": "Cryovials"
+  },
+  {
+    "value": "product_type:Cuffs",
+    "label": "Cuffs"
+  },
+  {
+    "value": "product_type:Culture Bottles, Flasks &amp; Petri-Dishes",
+    "label": "Culture Bottles, Flasks & Petri-Dishes"
+  },
+  {
+    "value": "product_type:Culture Media",
+    "label": "Culture Media"
+  },
+  {
+    "value": "product_type:Cup, Basin &amp; Bowl",
+    "label": "Cup, Basin & Bowl"
+  },
+  {
+    "value": "product_type:Cup, Lid &amp; Dispenser",
+    "label": "Cup, Lid & Dispenser"
+  },
+  {
+    "value": "product_type:Curette",
+    "label": "Curette"
+  },
+  {
+    "value": "product_type:Curved Tip",
+    "label": "Curved Tip"
+  },
+  {
+    "value": "product_type:Custom Procedure Kits, Packs &amp; Trays",
+    "label": "Custom Procedure Kits, Packs & Trays"
+  },
+  {
+    "value": "product_type:Cuvette Segment",
+    "label": "Cuvette Segment"
+  },
+  {
+    "value": "product_type:DermaSaver Leg",
+    "label": "DermaSaver Leg"
+  },
+  {
+    "value": "product_type:Detergents",
+    "label": "Detergents"
+  },
+  {
+    "value": "product_type:Diagnostic &amp; Neurological Instrument",
+    "label": "Diagnostic & Neurological Instrument"
+  },
+  {
+    "value": "product_type:Dialysis Renal Supplies",
+    "label": "Dialysis Renal Supplies"
+  },
+  {
+    "value": "product_type:Dilation",
+    "label": "Dilation"
+  },
+  {
+    "value": "product_type:Dilator &amp; Sound",
+    "label": "Dilator & Sound"
+  },
+  {
+    "value": "product_type:Disposable",
+    "label": "Disposable"
+  },
+  {
+    "value": "product_type:Disposable A/W Syringe Tip",
+    "label": "Disposable A/W Syringe Tip"
+  },
+  {
+    "value": "product_type:Disposable Safety Scalpels",
+    "label": "Disposable Safety Scalpels"
+  },
+  {
+    "value": "product_type:Disposable Standard Scalpels",
+    "label": "Disposable Standard Scalpels"
+  },
+  {
+    "value": "product_type:Dissector",
+    "label": "Dissector"
+  },
+  {
+    "value": "product_type:Divider",
+    "label": "Divider"
+  },
+  {
+    "value": "product_type:DME",
+    "label": "DME"
+  },
+  {
+    "value": "product_type:Dressing",
+    "label": "Dressing"
+  },
+  {
+    "value": "product_type:Drug Information Book",
+    "label": "Drug Information Book"
+  },
+  {
+    "value": "product_type:Drugs of Abuse",
+    "label": "Drugs of Abuse"
+  },
+  {
+    "value": "product_type:Drugs of Abuse - Dip, Cards &amp; Cups",
+    "label": "Drugs of Abuse - Dip, Cards & Cups"
+  },
+  {
+    "value": "product_type:DVT Products &amp; Post-Op Compression",
+    "label": "DVT Products & Post-Op Compression"
+  },
+  {
+    "value": "product_type:Dysphagia Cups",
+    "label": "Dysphagia Cups"
+  },
+  {
+    "value": "product_type:Ear, Nose &amp; Throat (ENT) Kit, Pack &amp; Tray",
+    "label": "Ear, Nose & Throat (ENT) Kit, Pack & Tray"
+  },
+  {
+    "value": "product_type:ECG Snap Electrode",
+    "label": "ECG Snap Electrode"
+  },
+  {
+    "value": "product_type:EKG",
+    "label": "EKG"
+  },
+  {
+    "value": "product_type:Electronic Timing and Locking PC Board",
+    "label": "Electronic Timing and Locking PC Board"
+  },
+  {
+    "value": "product_type:Electrotherapy System",
+    "label": "Electrotherapy System"
+  },
+  {
+    "value": "product_type:Embroidery Charge",
+    "label": "Embroidery Charge"
+  },
+  {
+    "value": "product_type:Emergency Medicine Instrument",
+    "label": "Emergency Medicine Instrument"
+  },
+  {
+    "value": "product_type:Endo Closure &amp; Stapling",
+    "label": "Endo Closure & Stapling"
+  },
+  {
+    "value": "product_type:Endo Surgical Accessories",
+    "label": "Endo Surgical Accessories"
+  },
+  {
+    "value": "product_type:Endotracheal Tubes",
+    "label": "Endotracheal Tubes"
+  },
+  {
+    "value": "product_type:ENT Instrument",
+    "label": "ENT Instrument"
+  },
+  {
+    "value": "product_type:ENT Products",
+    "label": "ENT Products"
+  },
+  {
+    "value": "product_type:Equipment",
+    "label": "Equipment"
+  },
+  {
+    "value": "product_type:Equipment Drapes &amp; Covers",
+    "label": "Equipment Drapes & Covers"
+  },
+  {
+    "value": "product_type:ESR",
+    "label": "ESR"
+  },
+  {
+    "value": "product_type:Evacuated Containers, Bags &amp; Bottles",
+    "label": "Evacuated Containers, Bags & Bottles"
+  },
+  {
+    "value": "product_type:Exam Gloves",
+    "label": "Exam Gloves"
+  },
+  {
+    "value": "product_type:Extractor &amp; Snare",
+    "label": "Extractor & Snare"
+  },
+  {
+    "value": "product_type:Eye Shields",
+    "label": "Eye Shields"
+  },
+  {
+    "value": "product_type:Fall Protection",
+    "label": "Fall Protection"
+  },
+  {
+    "value": "product_type:feeding tube",
+    "label": "feeding tube"
+  },
+  {
+    "value": "product_type:Feeding, Levin &amp; Stomach Tube",
+    "label": "Feeding, Levin & Stomach Tube"
+  },
+  {
+    "value": "product_type:Field Guides",
+    "label": "Field Guides"
+  },
+  {
+    "value": "product_type:Fixed Angle Centrifuge",
+    "label": "Fixed Angle Centrifuge"
+  },
+  {
+    "value": "product_type:Fixed Angle Rotor",
+    "label": "Fixed Angle Rotor"
+  },
+  {
+    "value": "product_type:Floor Scales",
+    "label": "Floor Scales"
+  },
+  {
+    "value": "product_type:Fluid Container &amp; Dispenser",
+    "label": "Fluid Container & Dispenser"
+  },
+  {
+    "value": "product_type:Foam Dressing",
+    "label": "Foam Dressing"
+  },
+  {
+    "value": "product_type:Foot &amp; Ankle",
+    "label": "Foot & Ankle"
+  },
+  {
+    "value": "product_type:Foot Exerciser",
+    "label": "Foot Exerciser"
+  },
+  {
+    "value": "product_type:Foot Protection",
+    "label": "Foot Protection"
+  },
+  {
+    "value": "product_type:Footwear",
+    "label": "Footwear"
+  },
+  {
+    "value": "product_type:Forcep",
+    "label": "Forcep"
+  },
+  {
+    "value": "product_type:Formalin Containers",
+    "label": "Formalin Containers"
+  },
+  {
+    "value": "product_type:Front Panel Label",
+    "label": "Front Panel Label"
+  },
+  {
+    "value": "product_type:Gait Belts",
+    "label": "Gait Belts"
+  },
+  {
+    "value": "product_type:Gel, Powder Dressing",
+    "label": "Gel, Powder Dressing"
+  },
+  {
+    "value": "product_type:General &amp; Multi-Use Specimen Containers",
+    "label": "General & Multi-Use Specimen Containers"
+  },
+  {
+    "value": "product_type:General Surgery Kit, Pack &amp; Tray",
+    "label": "General Surgery Kit, Pack & Tray"
+  },
+  {
+    "value": "product_type:GI Endoscopy Kit",
+    "label": "GI Endoscopy Kit"
+  },
+  {
+    "value": "product_type:GI Miscellaneous",
+    "label": "GI Miscellaneous"
+  },
+  {
+    "value": "product_type:Glides",
+    "label": "Glides"
+  },
+  {
+    "value": "product_type:Glove Box Holder",
+    "label": "Glove Box Holder"
+  },
+  {
+    "value": "product_type:Glucose",
+    "label": "Glucose"
+  },
+  {
+    "value": "product_type:Gown, Robe &amp; Pajamas",
+    "label": "Gown, Robe & Pajamas"
+  },
+  {
+    "value": "product_type:Gowns, Drapes, Capes &amp; Vests",
+    "label": "Gowns, Drapes, Capes & Vests"
+  },
+  {
+    "value": "product_type:Grip Exerciser",
+    "label": "Grip Exerciser"
+  },
+  {
+    "value": "product_type:Guaiac Occult",
+    "label": "Guaiac Occult"
+  },
+  {
+    "value": "product_type:Guide wires",
+    "label": "Guide wires"
+  },
+  {
+    "value": "product_type:GYN Surgical Stains &amp; Solutions",
+    "label": "GYN Surgical Stains & Solutions"
+  },
+  {
+    "value": "product_type:H. pylori",
+    "label": "H. pylori"
+  },
+  {
+    "value": "product_type:Hand &amp; Finger",
+    "label": "Hand & Finger"
+  },
+  {
+    "value": "product_type:Hand Care &amp; Accessories",
+    "label": "Hand Care & Accessories"
+  },
+  {
+    "value": "product_type:Hand Sanitizer",
+    "label": "Hand Sanitizer"
+  },
+  {
+    "value": "product_type:HCG",
+    "label": "HCG"
+  },
+  {
+    "value": "product_type:Headrest Cover",
+    "label": "Headrest Cover"
+  },
+  {
+    "value": "product_type:Helmets Protection",
+    "label": "Helmets Protection"
+  },
+  {
+    "value": "product_type:Hematology",
+    "label": "Hematology"
+  },
+  {
+    "value": "product_type:Hemostasis",
+    "label": "Hemostasis"
+  },
+  {
+    "value": "product_type:Hinge Screw",
+    "label": "Hinge Screw"
+  },
+  {
+    "value": "product_type:Histology Accessories",
+    "label": "Histology Accessories"
+  },
+  {
+    "value": "product_type:Histology Trays, Boxes, Cassettes",
+    "label": "Histology Trays, Boxes, Cassettes"
+  },
+  {
+    "value": "product_type:Hook",
+    "label": "Hook"
+  },
+  {
+    "value": "product_type:Hot &amp; Cold Therapy",
+    "label": "Hot & Cold Therapy"
+  },
+  {
+    "value": "product_type:Huber",
+    "label": "Huber"
+  },
+  {
+    "value": "product_type:Hydrocolloid",
+    "label": "Hydrocolloid"
+  },
+  {
+    "value": "product_type:Hydrogel Products",
+    "label": "Hydrogel Products"
+  },
+  {
+    "value": "product_type:Imaging Thermal Paper",
+    "label": "Imaging Thermal Paper"
+  },
+  {
+    "value": "product_type:Immunochemical Occult",
+    "label": "Immunochemical Occult"
+  },
+  {
+    "value": "product_type:Impregnated Dressings",
+    "label": "Impregnated Dressings"
+  },
+  {
+    "value": "product_type:Impregnated Surgical Scrub Brush",
+    "label": "Impregnated Surgical Scrub Brush"
+  },
+  {
+    "value": "product_type:Incision &amp; Drainage Kit, Pack &amp; Tray",
+    "label": "Incision & Drainage Kit, Pack & Tray"
+  },
+  {
+    "value": "product_type:Incubators",
+    "label": "Incubators"
+  },
+  {
+    "value": "product_type:Infectious Diseases",
+    "label": "Infectious Diseases"
+  },
+  {
+    "value": "product_type:Infusion Clamp",
+    "label": "Infusion Clamp"
+  },
+  {
+    "value": "product_type:Injector Luer Lock",
+    "label": "Injector Luer Lock"
+  },
+  {
+    "value": "product_type:Inoculating Loops",
+    "label": "Inoculating Loops"
+  },
+  {
+    "value": "product_type:Insoles",
+    "label": "Insoles"
+  },
+  {
+    "value": "product_type:Instruement stand",
+    "label": "Instruement stand"
+  },
+  {
+    "value": "product_type:Instrument Care &amp; Accessories",
+    "label": "Instrument Care & Accessories"
+  },
+  {
+    "value": "product_type:Instrument Kit, Pack &amp; Tray",
+    "label": "Instrument Kit, Pack & Tray"
+  },
+  {
+    "value": "product_type:Instrument Reprocessing",
+    "label": "Instrument Reprocessing"
+  },
+  {
+    "value": "product_type:Insulin",
+    "label": "Insulin"
+  },
+  {
+    "value": "product_type:Integrated Wall System",
+    "label": "Integrated Wall System"
+  },
+  {
+    "value": "product_type:Irrigation (Toomey) Tip",
+    "label": "Irrigation (Toomey) Tip"
+  },
+  {
+    "value": "product_type:Irrigation Sets &amp; Bulb Syringes",
+    "label": "Irrigation Sets & Bulb Syringes"
+  },
+  {
+    "value": "product_type:Irrigation Solutions",
+    "label": "Irrigation Solutions"
+  },
+  {
+    "value": "product_type:Isolation Carts",
+    "label": "Isolation Carts"
+  },
+  {
+    "value": "product_type:IV Administration Sets",
+    "label": "IV Administration Sets"
+  },
+  {
+    "value": "product_type:IV Introducers",
+    "label": "IV Introducers"
+  },
+  {
+    "value": "product_type:JOBST forMen Socks",
+    "label": "JOBST forMen Socks"
+  },
+  {
+    "value": "product_type:Knee &amp; Leg",
+    "label": "Knee & Leg"
+  },
+  {
+    "value": "product_type:Knotless Suture Device",
+    "label": "Knotless Suture Device"
+  },
+  {
+    "value": "product_type:Lab Jacket",
+    "label": "Lab Jacket"
+  },
+  {
+    "value": "product_type:Label",
+    "label": "Label"
+  },
+  {
+    "value": "product_type:Laboratory Coat",
+    "label": "Laboratory Coat"
+  },
+  {
+    "value": "product_type:Laboratory Labels",
+    "label": "Laboratory Labels"
+  },
+  {
+    "value": "product_type:Laboratory Thermometers",
+    "label": "Laboratory Thermometers"
+  },
+  {
+    "value": "product_type:Laboratory Timers",
+    "label": "Laboratory Timers"
+  },
+  {
+    "value": "product_type:Laboratory Tubing",
+    "label": "Laboratory Tubing"
+  },
+  {
+    "value": "product_type:Laceration Kit, Pack &amp; Tray",
+    "label": "Laceration Kit, Pack & Tray"
+  },
+  {
+    "value": "product_type:Lancet &amp; Device",
+    "label": "Lancet & Device"
+  },
+  {
+    "value": "product_type:Lap Sponge",
+    "label": "Lap Sponge"
+  },
+  {
+    "value": "product_type:Laryngoscopes",
+    "label": "Laryngoscopes"
+  },
+  {
+    "value": "product_type:Laundry Bag &amp; Liner",
+    "label": "Laundry Bag & Liner"
+  },
+  {
+    "value": "product_type:Laundry Hamper",
+    "label": "Laundry Hamper"
+  },
+  {
+    "value": "product_type:Leg Drainage Bag",
+    "label": "Leg Drainage Bag"
+  },
+  {
+    "value": "product_type:Leg Lifters",
+    "label": "Leg Lifters"
+  },
+  {
+    "value": "product_type:Lid Knob",
+    "label": "Lid Knob"
+  },
+  {
+    "value": "product_type:Lid Pawl",
+    "label": "Lid Pawl"
+  },
+  {
+    "value": "product_type:Ligation",
+    "label": "Ligation"
+  },
+  {
+    "value": "product_type:Limb Holders",
+    "label": "Limb Holders"
+  },
+  {
+    "value": "product_type:Liners &amp; Pads",
+    "label": "Liners & Pads"
+  },
+  {
+    "value": "product_type:Liquid",
+    "label": "Liquid"
+  },
+  {
+    "value": "product_type:Liquid Urine Dipstick Control Solution",
+    "label": "Liquid Urine Dipstick Control Solution"
+  },
+  {
+    "value": "product_type:Literacy And Literacy Related Abilities",
+    "label": "Literacy And Literacy Related Abilities"
+  },
+  {
+    "value": "product_type:Lohmann-Rauscher Rosidal K Short Stretch Bandage",
+    "label": "Lohmann-Rauscher Rosidal K Short Stretch Bandage"
+  },
+  {
+    "value": "product_type:Luer Lock",
+    "label": "Luer Lock"
+  },
+  {
+    "value": "product_type:Lumbar Puncture Kit, Pack &amp; Tray",
+    "label": "Lumbar Puncture Kit, Pack & Tray"
+  },
+  {
+    "value": "product_type:Mass Spectrometry",
+    "label": "Mass Spectrometry"
+  },
+  {
+    "value": "product_type:Mattress Cover",
+    "label": "Mattress Cover"
+  },
+  {
+    "value": "product_type:Measuring Devices",
+    "label": "Measuring Devices"
+  },
+  {
+    "value": "product_type:Mechanical Timer",
+    "label": "Mechanical Timer"
+  },
+  {
+    "value": "product_type:Med Sleeve",
+    "label": "Med Sleeve"
+  },
+  {
+    "value": "product_type:Medical Furniture",
+    "label": "Medical Furniture"
+  },
+  {
+    "value": "product_type:Medical Supplies",
+    "label": "Medical Supplies"
+  },
+  {
+    "value": "product_type:Medical Tape &amp; Bandages",
+    "label": "Medical Tape & Bandages"
+  },
+  {
+    "value": "product_type:Medication Dispensing",
+    "label": "Medication Dispensing"
+  },
+  {
+    "value": "product_type:Medicine Container",
+    "label": "Medicine Container"
+  },
+  {
+    "value": "product_type:Mesh, Hernia Repair",
+    "label": "Mesh, Hernia Repair"
+  },
+  {
+    "value": "product_type:Micro, Chisel Blades &amp; Knives",
+    "label": "Micro, Chisel Blades & Knives"
+  },
+  {
+    "value": "product_type:Microbiology Instruments",
+    "label": "Microbiology Instruments"
+  },
+  {
+    "value": "product_type:Microscope Cover Glass",
+    "label": "Microscope Cover Glass"
+  },
+  {
+    "value": "product_type:Microscope Lens Paper",
+    "label": "Microscope Lens Paper"
+  },
+  {
+    "value": "product_type:Microscope Slide Boxes",
+    "label": "Microscope Slide Boxes"
+  },
+  {
+    "value": "product_type:Microscope Slide Mailers",
+    "label": "Microscope Slide Mailers"
+  },
+  {
+    "value": "product_type:Microscope Slides",
+    "label": "Microscope Slides"
+  },
+  {
+    "value": "product_type:Microscopes",
+    "label": "Microscopes"
+  },
+  {
+    "value": "product_type:Mixers",
+    "label": "Mixers"
+  },
+  {
+    "value": "product_type:Mobility",
+    "label": "Mobility"
+  },
+  {
+    "value": "product_type:Molecular Testing",
+    "label": "Molecular Testing"
+  },
+  {
+    "value": "product_type:Monitoring Program",
+    "label": "Monitoring Program"
+  },
+  {
+    "value": "product_type:Mono Test Kits",
+    "label": "Mono Test Kits"
+  },
+  {
+    "value": "product_type:Multisample Needle",
+    "label": "Multisample Needle"
+  },
+  {
+    "value": "product_type:Myelogram Kit, Pack &amp; Tray",
+    "label": "Myelogram Kit, Pack & Tray"
+  },
+  {
+    "value": "product_type:Nail &amp; Podiatry Instrument",
+    "label": "Nail & Podiatry Instrument"
+  },
+  {
+    "value": "product_type:Narrow-Mouth Bottle",
+    "label": "Narrow-Mouth Bottle"
+  },
+  {
+    "value": "product_type:Neck &amp; Head",
+    "label": "Neck & Head"
+  },
+  {
+    "value": "product_type:Needle Counter",
+    "label": "Needle Counter"
+  },
+  {
+    "value": "product_type:Needle Holder",
+    "label": "Needle Holder"
+  },
+  {
+    "value": "product_type:Non-Adherent Dressing",
+    "label": "Non-Adherent Dressing"
+  },
+  {
+    "value": "product_type:Non-Specialty",
+    "label": "Non-Specialty"
+  },
+  {
+    "value": "product_type:Nurse &amp; Surgeon Hat",
+    "label": "Nurse & Surgeon Hat"
+  },
+  {
+    "value": "product_type:OB/GYN Instrument",
+    "label": "OB/GYN Instrument"
+  },
+  {
+    "value": "product_type:Offset Canes",
+    "label": "Offset Canes"
+  },
+  {
+    "value": "product_type:Ointment",
+    "label": "Ointment"
+  },
+  {
+    "value": "product_type:Ointment Jar",
+    "label": "Ointment Jar"
+  },
+  {
+    "value": "product_type:Omron Healthcare",
+    "label": "Omron Healthcare"
+  },
+  {
+    "value": "product_type:Ophthalmic Accessories",
+    "label": "Ophthalmic Accessories"
+  },
+  {
+    "value": "product_type:Ophthalmic Instrument",
+    "label": "Ophthalmic Instrument"
+  },
+  {
+    "value": "product_type:Ophthalmic Kit, Pack &amp; Tray",
+    "label": "Ophthalmic Kit, Pack & Tray"
+  },
+  {
+    "value": "product_type:OR Accessories",
+    "label": "OR Accessories"
+  },
+  {
+    "value": "product_type:OR Towel",
+    "label": "OR Towel"
+  },
+  {
+    "value": "product_type:Organizer For Suture Storage",
+    "label": "Organizer For Suture Storage"
+  },
+  {
+    "value": "product_type:Orthopedic Instrument",
+    "label": "Orthopedic Instrument"
+  },
+  {
+    "value": "product_type:Orthopedic Kit, Pack &amp; Tray",
+    "label": "Orthopedic Kit, Pack & Tray"
+  },
+  {
+    "value": "product_type:Ostomy Pouch, Skin Care &amp; Barrier",
+    "label": "Ostomy Pouch, Skin Care & Barrier"
+  },
+  {
+    "value": "product_type:Other Laboratory",
+    "label": "Other Laboratory"
+  },
+  {
+    "value": "product_type:Oxygen Concentrator",
+    "label": "Oxygen Concentrator"
+  },
+  {
+    "value": "product_type:Oxygen Regulator",
+    "label": "Oxygen Regulator"
+  },
+  {
+    "value": "product_type:Packing Gauze Strip",
+    "label": "Packing Gauze Strip"
+  },
+  {
+    "value": "product_type:Pad, Guard &amp; Liner",
+    "label": "Pad, Guard & Liner"
+  },
+  {
+    "value": "product_type:Pain Management - Spinal &amp; Epidural Needle",
+    "label": "Pain Management - Spinal & Epidural Needle"
+  },
+  {
+    "value": "product_type:Pants",
+    "label": "Pants"
+  },
+  {
+    "value": "product_type:Paper Thermal",
+    "label": "Paper Thermal"
+  },
+  {
+    "value": "product_type:Paracentesis &amp; Thoracentesis Kit, Pack &amp; Tray",
+    "label": "Paracentesis & Thoracentesis Kit, Pack & Tray"
+  },
+  {
+    "value": "product_type:Patient Bib, Towel &amp; Dispenser",
+    "label": "Patient Bib, Towel & Dispenser"
+  },
+  {
+    "value": "product_type:Patient Education Material",
+    "label": "Patient Education Material"
+  },
+  {
+    "value": "product_type:Patient Positioner",
+    "label": "Patient Positioner"
+  },
+  {
+    "value": "product_type:Patient Positioning",
+    "label": "Patient Positioning"
+  },
+  {
+    "value": "product_type:Patient Release Form",
+    "label": "Patient Release Form"
+  },
+  {
+    "value": "product_type:Pediatric",
+    "label": "Pediatric"
+  },
+  {
+    "value": "product_type:PegAssist Insole",
+    "label": "PegAssist Insole"
+  },
+  {
+    "value": "product_type:Personal Belongings Bag",
+    "label": "Personal Belongings Bag"
+  },
+  {
+    "value": "product_type:Pessaries",
+    "label": "Pessaries"
+  },
+  {
+    "value": "product_type:Petroleum Gauze",
+    "label": "Petroleum Gauze"
+  },
+  {
+    "value": "product_type:pH Paper",
+    "label": "pH Paper"
+  },
+  {
+    "value": "product_type:Phaseal Connector",
+    "label": "Phaseal Connector"
+  },
+  {
+    "value": "product_type:Phaseal Protector",
+    "label": "Phaseal Protector"
+  },
+  {
+    "value": "product_type:Phlebotomy Tote",
+    "label": "Phlebotomy Tote"
+  },
+  {
+    "value": "product_type:Phlebotomy Trays",
+    "label": "Phlebotomy Trays"
+  },
+  {
+    "value": "product_type:Phoropter Cover",
+    "label": "Phoropter Cover"
+  },
+  {
+    "value": "product_type:Pill Organizer &amp; Crusher",
+    "label": "Pill Organizer & Crusher"
+  },
+  {
+    "value": "product_type:Pillow Case, Blankets &amp; Sheet",
+    "label": "Pillow Case, Blankets & Sheet"
+  },
+  {
+    "value": "product_type:Pillow Cover &amp; Case",
+    "label": "Pillow Cover & Case"
+  },
+  {
+    "value": "product_type:Pipets, Pipettors &amp; Pipette Tips",
+    "label": "Pipets, Pipettors & Pipette Tips"
+  },
+  {
+    "value": "product_type:Plastic Surgery Instrument",
+    "label": "Plastic Surgery Instrument"
+  },
+  {
+    "value": "product_type:Plastic Surgery Kit, Pack &amp; Tray",
+    "label": "Plastic Surgery Kit, Pack & Tray"
+  },
+  {
+    "value": "product_type:Pocket Guide",
+    "label": "Pocket Guide"
+  },
+  {
+    "value": "product_type:Podiatry Kit, Pack &amp; Tray",
+    "label": "Podiatry Kit, Pack & Tray"
+  },
+  {
+    "value": "product_type:Point Relief Massage Bar",
+    "label": "Point Relief Massage Bar"
+  },
+  {
+    "value": "product_type:Polypectomy",
+    "label": "Polypectomy"
+  },
+  {
+    "value": "product_type:Positioning Pillow &amp; Cushion",
+    "label": "Positioning Pillow & Cushion"
+  },
+  {
+    "value": "product_type:Post-Op Surgical Shoe",
+    "label": "Post-Op Surgical Shoe"
+  },
+  {
+    "value": "product_type:Printer Paper",
+    "label": "Printer Paper"
+  },
+  {
+    "value": "product_type:Probes &amp; Directors",
+    "label": "Probes & Directors"
+  },
+  {
+    "value": "product_type:Procedure &amp; Tutorial Video",
+    "label": "Procedure & Tutorial Video"
+  },
+  {
+    "value": "product_type:Proctology Instrument",
+    "label": "Proctology Instrument"
+  },
+  {
+    "value": "product_type:Proficiency Testing",
+    "label": "Proficiency Testing"
+  },
+  {
+    "value": "product_type:Protector Transfer Device",
+    "label": "Protector Transfer Device"
+  },
+  {
+    "value": "product_type:PT/INR",
+    "label": "PT/INR"
+  },
+  {
+    "value": "product_type:Pump Accessories &amp; Connector",
+    "label": "Pump Accessories & Connector"
+  },
+  {
+    "value": "product_type:Quadtration Filter",
+    "label": "Quadtration Filter"
+  },
+  {
+    "value": "product_type:Racks",
+    "label": "Racks"
+  },
+  {
+    "value": "product_type:Radiation Protection Leaded Glasses",
+    "label": "Radiation Protection Leaded Glasses"
+  },
+  {
+    "value": "product_type:Raised Toilet Seat",
+    "label": "Raised Toilet Seat"
+  },
+  {
+    "value": "product_type:Reachers",
+    "label": "Reachers"
+  },
+  {
+    "value": "product_type:Reading",
+    "label": "Reading"
+  },
+  {
+    "value": "product_type:Recovery, Recycling &amp; Neutralizer",
+    "label": "Recovery, Recycling & Neutralizer"
+  },
+  {
+    "value": "product_type:Regulators",
+    "label": "Regulators"
+  },
+  {
+    "value": "product_type:Respiratory",
+    "label": "Respiratory"
+  },
+  {
+    "value": "product_type:Respiratory Care &amp; Tracheostomy Kit, Pack &amp; Tray",
+    "label": "Respiratory Care & Tracheostomy Kit, Pack & Tray"
+  },
+  {
+    "value": "product_type:Resting &amp; Monitoring",
+    "label": "Resting & Monitoring"
+  },
+  {
+    "value": "product_type:Restraint Vests",
+    "label": "Restraint Vests"
+  },
+  {
+    "value": "product_type:Retractor",
+    "label": "Retractor"
+  },
+  {
+    "value": "product_type:Reusable",
+    "label": "Reusable"
+  },
+  {
+    "value": "product_type:Rib &amp; Torso",
+    "label": "Rib & Torso"
+  },
+  {
+    "value": "product_type:Rockers",
+    "label": "Rockers"
+  },
+  {
+    "value": "product_type:Rolled Gauze",
+    "label": "Rolled Gauze"
+  },
+  {
+    "value": "product_type:Safety IV Catheters",
+    "label": "Safety IV Catheters"
+  },
+  {
+    "value": "product_type:Safety Mitts/Face Covers",
+    "label": "Safety Mitts/Face Covers"
+  },
+  {
+    "value": "product_type:Scalpel Blade Removers",
+    "label": "Scalpel Blade Removers"
+  },
+  {
+    "value": "product_type:Scalpel Blades",
+    "label": "Scalpel Blades"
+  },
+  {
+    "value": "product_type:Scalpel Handles",
+    "label": "Scalpel Handles"
+  },
+  {
+    "value": "product_type:Scissor &amp; Shear",
+    "label": "Scissor & Shear"
+  },
+  {
+    "value": "product_type:Scrub Jacket &amp; Sweater",
+    "label": "Scrub Jacket & Sweater"
+  },
+  {
+    "value": "product_type:Scrub Shirt",
+    "label": "Scrub Shirt"
+  },
+  {
+    "value": "product_type:Self Adhering &amp; Co-Adherent Bandage",
+    "label": "Self Adhering & Co-Adherent Bandage"
+  },
+  {
+    "value": "product_type:Serological Pipettes",
+    "label": "Serological Pipettes"
+  },
+  {
+    "value": "product_type:Sharps Cabinet",
+    "label": "Sharps Cabinet"
+  },
+  {
+    "value": "product_type:Sharps Container",
+    "label": "Sharps Container"
+  },
+  {
+    "value": "product_type:Shave Prep",
+    "label": "Shave Prep"
+  },
+  {
+    "value": "product_type:Shears, Blades &amp; Tissue Sealers",
+    "label": "Shears, Blades & Tissue Sealers"
+  },
+  {
+    "value": "product_type:Sheepskin Ranch Sofsheep Wheelchair Armrest Cover Short",
+    "label": "Sheepskin Ranch Sofsheep Wheelchair Armrest Cover Short"
+  },
+  {
+    "value": "product_type:Shoulder",
+    "label": "Shoulder"
+  },
+  {
+    "value": "product_type:Silver Products",
+    "label": "Silver Products"
+  },
+  {
+    "value": "product_type:Skin Adhesive",
+    "label": "Skin Adhesive"
+  },
+  {
+    "value": "product_type:Skin Closure Strip",
+    "label": "Skin Closure Strip"
+  },
+  {
+    "value": "product_type:Skin Marking Pen",
+    "label": "Skin Marking Pen"
+  },
+  {
+    "value": "product_type:Skin Prep Solution",
+    "label": "Skin Prep Solution"
+  },
+  {
+    "value": "product_type:Skin Prep Tray",
+    "label": "Skin Prep Tray"
+  },
+  {
+    "value": "product_type:Skin Stapler, Remover &amp; Accessories",
+    "label": "Skin Stapler, Remover & Accessories"
+  },
+  {
+    "value": "product_type:Sling",
+    "label": "Sling"
+  },
+  {
+    "value": "product_type:Slip Tip",
+    "label": "Slip Tip"
+  },
+  {
+    "value": "product_type:Slippers",
+    "label": "Slippers"
+  },
+  {
+    "value": "product_type:Small Equipment",
+    "label": "Small Equipment"
+  },
+  {
+    "value": "product_type:Smoke Evacuators",
+    "label": "Smoke Evacuators"
+  },
+  {
+    "value": "product_type:Software",
+    "label": "Software"
+  },
+  {
+    "value": "product_type:Spears, Drains, Pledgets &amp; Fluid Control",
+    "label": "Spears, Drains, Pledgets & Fluid Control"
+  },
+  {
+    "value": "product_type:Specialty",
+    "label": "Specialty"
+  },
+  {
+    "value": "product_type:Specialty Blades",
+    "label": "Specialty Blades"
+  },
+  {
+    "value": "product_type:Specialty Tests",
+    "label": "Specialty Tests"
+  },
+  {
+    "value": "product_type:Specialty Use",
+    "label": "Specialty Use"
+  },
+  {
+    "value": "product_type:Specimen Cups",
+    "label": "Specimen Cups"
+  },
+  {
+    "value": "product_type:Specimen Mailers",
+    "label": "Specimen Mailers"
+  },
+  {
+    "value": "product_type:Specula",
+    "label": "Specula"
+  },
+  {
+    "value": "product_type:Spill Kit &amp; Solidifier",
+    "label": "Spill Kit & Solidifier"
+  },
+  {
+    "value": "product_type:Spinal",
+    "label": "Spinal"
+  },
+  {
+    "value": "product_type:Spinal Needle",
+    "label": "Spinal Needle"
+  },
+  {
+    "value": "product_type:Splint Non-Casting",
+    "label": "Splint Non-Casting"
+  },
+  {
+    "value": "product_type:Sponge",
+    "label": "Sponge"
+  },
+  {
+    "value": "product_type:Stackable Bowl",
+    "label": "Stackable Bowl"
+  },
+  {
+    "value": "product_type:Stainless Steel Carts",
+    "label": "Stainless Steel Carts"
+  },
+  {
+    "value": "product_type:Standard IV Catheters",
+    "label": "Standard IV Catheters"
+  },
+  {
+    "value": "product_type:Sterilization Processing",
+    "label": "Sterilization Processing"
+  },
+  {
+    "value": "product_type:Sterilization Wrap",
+    "label": "Sterilization Wrap"
+  },
+  {
+    "value": "product_type:Storage Jar, Container &amp; Accessories",
+    "label": "Storage Jar, Container & Accessories"
+  },
+  {
+    "value": "product_type:Straps",
+    "label": "Straps"
+  },
+  {
+    "value": "product_type:Strecher wheel",
+    "label": "Strecher wheel"
+  },
+  {
+    "value": "product_type:Strep",
+    "label": "Strep"
+  },
+  {
+    "value": "product_type:Stress",
+    "label": "Stress"
+  },
+  {
+    "value": "product_type:Stretch Bandage",
+    "label": "Stretch Bandage"
+  },
+  {
+    "value": "product_type:Stretcher Sheet",
+    "label": "Stretcher Sheet"
+  },
+  {
+    "value": "product_type:Suction Tube &amp; Cannula",
+    "label": "Suction Tube & Cannula"
+  },
+  {
+    "value": "product_type:Support &amp; Compression",
+    "label": "Support & Compression"
+  },
+  {
+    "value": "product_type:Support &amp; Shield",
+    "label": "Support & Shield"
+  },
+  {
+    "value": "product_type:Surface Disinfectant Cleaner",
+    "label": "Surface Disinfectant Cleaner"
+  },
+  {
+    "value": "product_type:Surgeon Needle",
+    "label": "Surgeon Needle"
+  },
+  {
+    "value": "product_type:Surgical Bra",
+    "label": "Surgical Bra"
+  },
+  {
+    "value": "product_type:Surgical Gown &amp; Sleeve",
+    "label": "Surgical Gown & Sleeve"
+  },
+  {
+    "value": "product_type:Surgical Procedure Drapes",
+    "label": "Surgical Procedure Drapes"
+  },
+  {
+    "value": "product_type:Surgical Scrub",
+    "label": "Surgical Scrub"
+  },
+  {
+    "value": "product_type:Suture Removal Kit, Pack &amp; Tray",
+    "label": "Suture Removal Kit, Pack & Tray"
+  },
+  {
+    "value": "product_type:Suture with Needle",
+    "label": "Suture with Needle"
+  },
+  {
+    "value": "product_type:Suture without Needle",
+    "label": "Suture without Needle"
+  },
+  {
+    "value": "product_type:Swabs &amp; Brushes",
+    "label": "Swabs & Brushes"
+  },
+  {
+    "value": "product_type:Syringe Tray",
+    "label": "Syringe Tray"
+  },
+  {
+    "value": "product_type:Table Bases",
+    "label": "Table Bases"
+  },
+  {
+    "value": "product_type:Table Paper",
+    "label": "Table Paper"
+  },
+  {
+    "value": "product_type:Tablet",
+    "label": "Tablet"
+  },
+  {
+    "value": "product_type:Tape",
+    "label": "Tape"
+  },
+  {
+    "value": "product_type:Test",
+    "label": "Test"
+  },
+  {
+    "value": "product_type:Test Tubes",
+    "label": "Test Tubes"
+  },
+  {
+    "value": "product_type:Tips, Traps &amp; Tubing",
+    "label": "Tips, Traps & Tubing"
+  },
+  {
+    "value": "product_type:Tissue Products &amp; Dispenser",
+    "label": "Tissue Products & Dispenser"
+  },
+  {
+    "value": "product_type:Tongue Depressor",
+    "label": "Tongue Depressor"
+  },
+  {
+    "value": "product_type:Top &amp; Apron",
+    "label": "Top & Apron"
+  },
+  {
+    "value": "product_type:Topical Analgesics",
+    "label": "Topical Analgesics"
+  },
+  {
+    "value": "product_type:Tourniquet",
+    "label": "Tourniquet"
+  },
+  {
+    "value": "product_type:Towel &amp; Washcloth",
+    "label": "Towel & Washcloth"
+  },
+  {
+    "value": "product_type:Towel, Washcloth &amp; Dispenser",
+    "label": "Towel, Washcloth & Dispenser"
+  },
+  {
+    "value": "product_type:Towels, Washcloths &amp; Dispensers",
+    "label": "Towels, Washcloths & Dispensers"
+  },
+  {
+    "value": "product_type:Tracheostomy Tubes",
+    "label": "Tracheostomy Tubes"
+  },
+  {
+    "value": "product_type:Traction Gloves",
+    "label": "Traction Gloves"
+  },
+  {
+    "value": "product_type:Training Aids &amp; Models",
+    "label": "Training Aids & Models"
+  },
+  {
+    "value": "product_type:Training Program",
+    "label": "Training Program"
+  },
+  {
+    "value": "product_type:Transfer Boards",
+    "label": "Transfer Boards"
+  },
+  {
+    "value": "product_type:Transfer Pipette",
+    "label": "Transfer Pipette"
+  },
+  {
+    "value": "product_type:Transfer pole",
+    "label": "Transfer pole"
+  },
+  {
+    "value": "product_type:Transfusion Sets",
+    "label": "Transfusion Sets"
+  },
+  {
+    "value": "product_type:Transparent Dressing",
+    "label": "Transparent Dressing"
+  },
+  {
+    "value": "product_type:Transport Chair",
+    "label": "Transport Chair"
+  },
+  {
+    "value": "product_type:Transport Dolly",
+    "label": "Transport Dolly"
+  },
+  {
+    "value": "product_type:Transport Tubes",
+    "label": "Transport Tubes"
+  },
+  {
+    "value": "product_type:Trash Bags - Plastic",
+    "label": "Trash Bags - Plastic"
+  },
+  {
+    "value": "product_type:Tray, Cover &amp; Dispenser",
+    "label": "Tray, Cover & Dispenser"
+  },
+  {
+    "value": "product_type:Tube",
+    "label": "Tube"
+  },
+  {
+    "value": "product_type:Tuberculin (TB)",
+    "label": "Tuberculin (TB)"
+  },
+  {
+    "value": "product_type:Tubular Bandage",
+    "label": "Tubular Bandage"
+  },
+  {
+    "value": "product_type:Tubular Bandages/Netting",
+    "label": "Tubular Bandages/Netting"
+  },
+  {
+    "value": "product_type:Ultrasound System",
+    "label": "Ultrasound System"
+  },
+  {
+    "value": "product_type:Ultrasound Systems",
+    "label": "Ultrasound Systems"
+  },
+  {
+    "value": "product_type:Umbilical Catheters",
+    "label": "Umbilical Catheters"
+  },
+  {
+    "value": "product_type:Underpad",
+    "label": "Underpad"
+  },
+  {
+    "value": "product_type:Underwear &amp; Pant",
+    "label": "Underwear & Pant"
+  },
+  {
+    "value": "product_type:Unna Boot",
+    "label": "Unna Boot"
+  },
+  {
+    "value": "product_type:Upholstery/Tops",
+    "label": "Upholstery/Tops"
+  },
+  {
+    "value": "product_type:Urinal",
+    "label": "Urinal"
+  },
+  {
+    "value": "product_type:Urinalysis",
+    "label": "Urinalysis"
+  },
+  {
+    "value": "product_type:Urological Accessories",
+    "label": "Urological Accessories"
+  },
+  {
+    "value": "product_type:Urological Catheter",
+    "label": "Urological Catheter"
+  },
+  {
+    "value": "product_type:Urological Catheter Kit, Pack &amp; Tray",
+    "label": "Urological Catheter Kit, Pack & Tray"
+  },
+  {
+    "value": "product_type:Urological Instrument",
+    "label": "Urological Instrument"
+  },
+  {
+    "value": "product_type:Urology Kit, Pack &amp; Tray",
+    "label": "Urology Kit, Pack & Tray"
+  },
+  {
+    "value": "product_type:Utensils &amp; Accessories",
+    "label": "Utensils & Accessories"
+  },
+  {
+    "value": "product_type:Uterine Manipulators, Suction, Biopsy",
+    "label": "Uterine Manipulators, Suction, Biopsy"
+  },
+  {
+    "value": "product_type:Utility Drapes &amp; Pouches",
+    "label": "Utility Drapes & Pouches"
+  },
+  {
+    "value": "product_type:Vails",
+    "label": "Vails"
+  },
+  {
+    "value": "product_type:Vascular Access Kit, Pack &amp; Tray",
+    "label": "Vascular Access Kit, Pack & Tray"
+  },
+  {
+    "value": "product_type:Vein Ablation Kit, Pack &amp; Tray",
+    "label": "Vein Ablation Kit, Pack & Tray"
+  },
+  {
+    "value": "product_type:Venous Blood Collection Tube",
+    "label": "Venous Blood Collection Tube"
+  },
+  {
+    "value": "product_type:Vessel Loop",
+    "label": "Vessel Loop"
+  },
+  {
+    "value": "product_type:Vials",
+    "label": "Vials"
+  },
+  {
+    "value": "product_type:Vital Signs Monitor",
+    "label": "Vital Signs Monitor"
+  },
+  {
+    "value": "product_type:Walker Boot",
+    "label": "Walker Boot"
+  },
+  {
+    "value": "product_type:Walkers &amp; Rollators",
+    "label": "Walkers & Rollators"
+  },
+  {
+    "value": "product_type:Wall Cabinet",
+    "label": "Wall Cabinet"
+  },
+  {
+    "value": "product_type:Wall Chart &amp; Poster",
+    "label": "Wall Chart & Poster"
+  },
+  {
+    "value": "product_type:Waste Receptacle &amp; Accessories",
+    "label": "Waste Receptacle & Accessories"
+  },
+  {
+    "value": "product_type:Water Cleaning Products",
+    "label": "Water Cleaning Products"
+  },
+  {
+    "value": "product_type:Wedges",
+    "label": "Wedges"
+  },
+  {
+    "value": "product_type:Weights",
+    "label": "Weights"
+  },
+  {
+    "value": "product_type:White Foam Electrodes",
+    "label": "White Foam Electrodes"
+  },
+  {
+    "value": "product_type:Winged Set",
+    "label": "Winged Set"
+  },
+  {
+    "value": "product_type:Women&#39;s Health Kit, Pack &amp; Tray",
+    "label": "Women's Health Kit, Pack & Tray"
+  },
+  {
+    "value": "product_type:Wooden Cane",
+    "label": "Wooden Cane"
+  },
+  {
+    "value": "product_type:Wound Care",
+    "label": "Wound Care"
+  },
+  {
+    "value": "product_type:Wound Care &amp; Debridement Kit, Pack &amp; Tray",
+    "label": "Wound Care & Debridement Kit, Pack & Tray"
+  },
+  {
+    "value": "product_type:Wound Care Tape",
+    "label": "Wound Care Tape"
+  },
+  {
+    "value": "product_type:Wound Closure Accessories",
+    "label": "Wound Closure Accessories"
+  },
+  {
+    "value": "product_type:Wound Drainage Accessories",
+    "label": "Wound Drainage Accessories"
+  },
+  {
+    "value": "product_type:Wound Drainage Tubing",
+    "label": "Wound Drainage Tubing"
+  },
+  {
+    "value": "product_type:Wrist Bands",
+    "label": "Wrist Bands"
+  },
+  {
+    "value": "product_type:wrists supports",
+    "label": "wrists supports"
+  },
+  {
+    "value": "product_type:X-Ray",
+    "label": "X-Ray"
+  }
+]
