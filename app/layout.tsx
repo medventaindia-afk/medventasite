@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import Script from 'next/script';
 import './globals.css';
 import MedicalSchema from '@/components/seo/MedicalSchema';
 import { CartProvider } from '@/context/CartContext';
@@ -95,6 +96,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <MedicalSchema />
       </head>
       <body className="template-index" data-instant-allow-query-string>
+        {/* Google tag (gtag.js) */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-J4J5TBGNRY"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-J4J5TBGNRY');
+            `,
+          }}
+        />
         <svg className="icon-star-reference" aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" style={{ display: 'none' }}>
           <symbol id="icon-star">
             <rect className="icon-star-background" width="20" height="20" fill="currentColor"></rect>
