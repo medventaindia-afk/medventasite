@@ -74,41 +74,83 @@ export default function SupplyCategoryPage({ params }: PageProps) {
 
   const matchingProducts = getProductsForCategory(category.slug);
 
-  // Structured Data: Service + MedicalBusiness + ItemList
+  // Structured Data: CollectionPage + ItemList + BreadcrumbList + B2B Service (NO naked @type: 'Product')
+  const canonicalUrl = `https://www.medventa.in/supply/${location.slug}/${category.slug}`;
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Service',
-    serviceType: `Medical Device & Consumable Procurement: ${category.name}`,
-    provider: {
-      '@type': 'MedicalBusiness',
-      name: 'MedVenta India',
-      url: 'https://www.medventa.in',
-    },
-    areaServed: {
-      '@type': 'City',
-      name: location.name,
-      containedInPlace: {
-        '@type': 'Country',
-        name: location.country,
-      },
-    },
-    description: `Direct institutional supply of ${category.name} to hospitals and clinics across ${location.name}, ${location.country}.`,
-    hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      name: `${category.name} Catalog for ${location.name}`,
-      itemListElement: matchingProducts.map((p, index) => ({
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Product',
-          name: p.name,
-          sku: p.sku,
-          brand: p.brand,
-          price: p.price,
-          priceCurrency: 'INR',
+    '@graph': [
+      {
+        '@type': 'CollectionPage',
+        '@id': `${canonicalUrl}#webpage`,
+        url: canonicalUrl,
+        name: `${category.name} Bulk Supplier in ${location.name}, ${location.country} | MedVenta`,
+        description: `Hospital procurement and bulk supply of ${category.name.toLowerCase()} in ${location.name}. Verified ${location.regulatoryBody} compliance, fast transit via ${location.customsPort}, and 100% authentic inventory.`,
+        isPartOf: {
+          '@type': 'WebSite',
+          '@id': 'https://www.medventa.in/#website',
+          name: 'MedVenta India',
+          url: 'https://www.medventa.in',
         },
-        position: index + 1,
-      })),
-    },
+        about: {
+          '@type': 'Service',
+          serviceType: `Medical Device & Consumable Procurement: ${category.name}`,
+          provider: {
+            '@type': 'MedicalBusiness',
+            name: 'MedVenta India',
+            url: 'https://www.medventa.in',
+          },
+          areaServed: {
+            '@type': 'City',
+            name: location.name,
+            containedInPlace: {
+              '@type': 'Country',
+              name: location.country,
+            },
+          },
+        },
+        mainEntity: {
+          '@type': 'ItemList',
+          name: `${category.name} Catalog for ${location.name}`,
+          numberOfItems: matchingProducts.length,
+          itemListElement: matchingProducts.map((p, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            name: p.name,
+            url: `https://www.medventa.in/products/${p.handle}`,
+          })),
+        },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${canonicalUrl}#breadcrumb`,
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: 'https://www.medventa.in',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Supply Network',
+            item: 'https://www.medventa.in/supply',
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: location.name,
+            item: `https://www.medventa.in/supply/${location.slug}`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 4,
+            name: category.name,
+            item: canonicalUrl,
+          },
+        ],
+      },
+    ],
   };
 
   const whatsappMessage = encodeURIComponent(
