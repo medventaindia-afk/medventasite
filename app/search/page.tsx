@@ -15,6 +15,13 @@ interface SearchPageProps {
 export const metadata = {
   title: 'Search Medical Supplies & Equipment | MedVanta India',
   description: 'Search MedVanta catalog for institutional medical consumables, surgical sutures, vascular access, and diagnostic equipment.',
+  alternates: {
+    canonical: 'https://www.medventa.in/search',
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function SearchPage({ searchParams }: SearchPageProps) {

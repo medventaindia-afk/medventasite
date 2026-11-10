@@ -25,9 +25,6 @@ export const metadata: Metadata = {
     'NABH medical consumables',
     'hospital supply chain Delhi Mumbai Bengaluru'
   ],
-  alternates: {
-    canonical: 'https://www.medventa.in',
-  },
   openGraph: {
     title: 'MedVenta India | Institutional Medical Supplies & Healthcare Portal',
     description: 'Over 350,000 World-Class Healthcare Products – Sourced Globally. Serving Hospitals, Clinics & Healthcare Professionals Across India.',

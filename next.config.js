@@ -23,49 +23,69 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: '/supply/delhi',
+        destination: '/supply/delhi-ncr',
+        permanent: true,
+      },
+      {
+        source: '/supply/delhi/:category',
+        destination: '/supply/delhi-ncr/:category',
+        permanent: true,
+      },
+      {
+        source: '/supply/bangalore',
+        destination: '/supply/bengaluru',
+        permanent: true,
+      },
+      {
+        source: '/supply/bangalore/:category',
+        destination: '/supply/bengaluru/:category',
+        permanent: true,
+      },
+      {
         source: '/pages/contact-us',
         destination: '/pages/contact',
-        permanent: false,
+        permanent: true,
       },
       {
         source: '/b2b-quote',
         destination: '/in/b2b-quote',
-        permanent: false,
+        permanent: true,
       },
       {
         source: '/pages/b2b-enquiry',
         destination: '/in/b2b-quote',
-        permanent: false,
+        permanent: true,
       },
       {
         source: '/pages/privacy-policy',
         destination: '/policies/privacy-policy',
-        permanent: false,
+        permanent: true,
       },
       {
         source: '/pages/terms-of-service',
         destination: '/policies/terms-of-service',
-        permanent: false,
+        permanent: true,
       },
       {
         source: '/pages/refund-policy',
         destination: '/policies/refund-policy',
-        permanent: false,
+        permanent: true,
       },
       {
         source: '/pages/shipping-policy',
         destination: '/policies/shipping-policy',
-        permanent: false,
+        permanent: true,
       },
       {
         source: '/pages/contact-information',
         destination: '/policies/contact-information',
-        permanent: false,
+        permanent: true,
       },
       {
-        source: '/collections/:slug/products/:handle',
-        destination: '/products/:handle',
-        permanent: false,
+        source: '/collections',
+        destination: '/collections/all',
+        permanent: true,
       },
     ];
   },

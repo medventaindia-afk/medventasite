@@ -6,6 +6,9 @@ import Footer from '@/components/Footer';
 export const metadata: Metadata = {
   title: 'Refund Policy | Medventa India',
   description: 'Read the Medventa Refund Policy for medical supplies and healthcare products purchased through our platform.',
+  alternates: {
+    canonical: 'https://www.medventa.in/policies/refund-policy',
+  },
 };
 
 export default function RefundPolicyPage() {

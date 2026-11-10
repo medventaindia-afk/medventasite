@@ -1,5 +1,5 @@
-import CollectionPage from './[slug]/page';
+import { permanentRedirect } from 'next/navigation';
 
 export default function CollectionsIndexPage() {
-  return <CollectionPage />;
+  permanentRedirect('/collections/all');
 }

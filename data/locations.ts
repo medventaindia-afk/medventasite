@@ -625,7 +625,8 @@ export function getAllLocations(): LocationData[] {
 }
 
 export function getLocationBySlug(slug: string): LocationData | undefined {
-  return LOCATIONS.find(l => l.slug === slug);
+  const normalizedSlug = slug === 'delhi' ? 'delhi-ncr' : slug === 'bangalore' ? 'bengaluru' : slug;
+  return LOCATIONS.find(l => l.slug === normalizedSlug);
 }
 
 export function getDomesticLocations(): LocationData[] {

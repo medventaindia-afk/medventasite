@@ -3,6 +3,7 @@ import { getAllBlogPosts } from '@/data/seoBlogService';
 import { PRODUCTS } from '@/data/products';
 import { getAllLocations } from '@/data/locations';
 import { getAllCategories } from '@/data/categories';
+import { shouldIndexCategoryPage } from '@/lib/supplySeoEngine';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.medventa.in';
@@ -19,8 +20,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${baseUrl}/collections/all`,
       lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.9,
+      changeFrequency: 'daily',
+      priority: 0.95,
     },
     {
       url: `${baseUrl}/blog`,
@@ -32,7 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/supply`,
       lastModified: now,
       changeFrequency: 'weekly',
-      priority: 0.9,
+      priority: 0.85,
     },
     {
       url: `${baseUrl}/in/b2b-quote`,
@@ -72,43 +73,46 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // 2. Direct Products (12 items, Priority 0.85)
+  // 2. Direct Products (Primary transactional SKUs, Priority 0.9)
   const productRoutes: MetadataRoute.Sitemap = PRODUCTS.map((p) => ({
     url: `${baseUrl}/products/${p.handle}`,
     lastModified: now,
     changeFrequency: 'weekly',
-    priority: 0.85,
+    priority: 0.9,
   }));
 
-  // 3. Technical Dossiers & Programmatic Blogs (100 articles, Priority 0.8)
+  // 3. Technical Dossiers & Clinical Procurement Guides (100 authoritative guides, Priority 0.85)
   const blogPosts = getAllBlogPosts();
   const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(post.publishedDate),
     changeFrequency: 'weekly',
-    priority: 0.8,
+    priority: 0.85,
   }));
 
-  // 4. City Master Hubs (40 Healthcare Capitals, Priority 0.85)
+  // 4. City Master Hubs (40 Regional Healthcare Capitals, Priority 0.8)
   const locations = getAllLocations();
   const locationRoutes: MetadataRoute.Sitemap = locations.map((loc) => ({
     url: `${baseUrl}/supply/${loc.slug}`,
     lastModified: now,
     changeFrequency: 'weekly',
-    priority: 0.85,
+    priority: 0.8,
   }));
 
-  // 5. Programmatic City + Category Landing Pages (40 locations x 7 categories = 280 URLs, Priority 0.75)
+  // 5. Hybrid Mode: Tier-1 Strategic Category Landing Pages (Only high-intent, authoritative hubs, Priority 0.65)
+  // Secondary permutations are omitted from sitemap and marked noindex,follow to prevent crawl dilution and protect domain quality.
   const categories = getAllCategories();
   const supplyCategoryRoutes: MetadataRoute.Sitemap = [];
   for (const loc of locations) {
     for (const cat of categories) {
-      supplyCategoryRoutes.push({
-        url: `${baseUrl}/supply/${loc.slug}/${cat.slug}`,
-        lastModified: now,
-        changeFrequency: 'weekly',
-        priority: 0.75,
-      });
+      if (shouldIndexCategoryPage(loc.slug, cat.slug)) {
+        supplyCategoryRoutes.push({
+          url: `${baseUrl}/supply/${loc.slug}/${cat.slug}`,
+          lastModified: now,
+          changeFrequency: 'weekly',
+          priority: 0.65,
+        });
+      }
     }
   }
 

@@ -6,6 +6,9 @@ import Footer from '@/components/Footer';
 export const metadata: Metadata = {
   title: 'Terms of Service | Medventa India',
   description: 'Read the Terms of Service governing your use of the Medventa website and purchase of medical supplies.',
+  alternates: {
+    canonical: 'https://www.medventa.in/policies/terms-of-service',
+  },
 };
 
 export default function TermsOfServicePage() {

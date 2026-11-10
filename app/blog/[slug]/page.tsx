@@ -679,6 +679,7 @@ export default function BlogPostDetailPage({ params }: PageProps) {
 
                   <Link
                     href={`/in/b2b-quote?product=${encodeURIComponent(matchedProduct.name)}`}
+                    rel="nofollow"
                     className="block w-full text-center rounded-lg border border-amber-600 bg-amber-500 py-2.5 text-xs font-bold text-slate-950 hover:bg-amber-400 transition-colors shadow-sm"
                   >
                     REQUEST INSTITUTIONAL QUOTE

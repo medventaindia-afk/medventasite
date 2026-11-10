@@ -6,6 +6,9 @@ import Footer from '@/components/Footer';
 export const metadata: Metadata = {
   title: 'Contact Information | Medventa India',
   description: 'Find Medventa contact details, office address, phone numbers, and business hours.',
+  alternates: {
+    canonical: 'https://www.medventa.in/policies/contact-information',
+  },
 };
 
 export default function ContactInformationPage() {

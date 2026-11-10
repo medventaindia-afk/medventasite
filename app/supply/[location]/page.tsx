@@ -7,6 +7,10 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { getAllLocations, getLocationBySlug } from '@/data/locations';
 import { getAllCategories } from '@/data/categories';
+import {
+  getLocationHubMetadata,
+  getRelatedBlogPostsForSupply,
+} from '@/lib/supplySeoEngine';
 
 interface PageProps {
   params: { location: string };
@@ -25,14 +29,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return { title: 'Location Not Found | MedVenta' };
   }
 
-  const title = `Hospital Medical Supply Hub in ${location.name}, ${location.country} | MedVenta`;
-  const description = `Direct medical device and surgical consumable supply across ${location.name}. Verified ${location.regulatoryBody} compliance, fast transit via ${location.customsPort}, and institutional pricing.`;
-  const canonicalUrl = `https://www.medventa.in/supply/${location.slug}`;
+  const { title, description, canonicalUrl } = getLocationHubMetadata(location);
 
   return {
     title,
     description,
     alternates: { canonical: canonicalUrl },
+    robots: {
+      index: true,
+      follow: true,
+    },
     openGraph: {
       title,
       description,
@@ -50,6 +56,7 @@ export default function LocationMasterHubPage({ params }: PageProps) {
   }
 
   const categories = getAllCategories();
+  const relatedBlogs = getRelatedBlogPostsForSupply(location, undefined, 3);
 
   // Schema: LocalBusiness / MedicalBusiness
   const jsonLd = {
@@ -115,6 +122,7 @@ export default function LocationMasterHubPage({ params }: PageProps) {
           <div className="mt-6 flex flex-wrap gap-4">
             <Link
               href={`/in/b2b-quote?location=${encodeURIComponent(location.name)}`}
+              rel="nofollow"
               className="rounded-lg bg-amber-500 px-6 py-2.5 text-sm font-bold text-slate-950 hover:bg-amber-400 transition-colors shadow"
             >
               Request {location.name} Hospital Quotation
@@ -233,6 +241,7 @@ export default function LocationMasterHubPage({ params }: PageProps) {
                   </Link>
                   <Link
                     href={`/in/b2b-quote?location=${encodeURIComponent(location.name)}&category=${encodeURIComponent(cat.name)}`}
+                    rel="nofollow"
                     className="rounded bg-amber-50 px-2.5 py-1 text-[11px] font-semibold text-amber-800 hover:bg-amber-100"
                   >
                     Get Quote
@@ -244,7 +253,7 @@ export default function LocationMasterHubPage({ params }: PageProps) {
         </section>
 
         {/* Notable Hospital Networks Section */}
-        <section className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm">
+        <section className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm mb-14">
           <h2 className="text-base font-bold text-slate-900">
             Key Institutional Clients &amp; Hospital Networks in {location.name}
           </h2>
@@ -262,6 +271,59 @@ export default function LocationMasterHubPage({ params }: PageProps) {
             ))}
           </div>
         </section>
+
+        {/* Technical Dossiers & Clinical Procurement Guides (Internal Linking Engine) */}
+        {relatedBlogs.length > 0 && (
+          <section className="mb-14 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-6 border-b border-slate-100 gap-2">
+              <div>
+                <h2 className="text-xl font-bold text-[#0F2D4E]">
+                  Regional Procurement Dossiers &amp; Clinical Guides
+                </h2>
+                <p className="text-xs text-slate-500 mt-1">
+                  In-depth technical analysis, Incoterms pricing models, and statutory clearance procedures relevant to {location.name}.
+                </p>
+              </div>
+              <Link
+                href="/blog"
+                className="text-xs font-bold text-[#046e82] hover:underline self-start sm:self-auto shrink-0"
+              >
+                Explore Knowledge Base →
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {relatedBlogs.map((post) => (
+                <article
+                  key={post.id}
+                  className="flex flex-col justify-between rounded-xl border border-slate-200 bg-slate-50/60 p-5 hover:border-[#046e82] hover:bg-white hover:shadow-md transition-all group"
+                >
+                  <div>
+                    <div className="flex items-center gap-2 text-[11px] font-semibold text-[#046e82] uppercase tracking-wider mb-2">
+                      <span className="rounded bg-teal-50 px-2 py-0.5 text-teal-800 border border-teal-200/60">
+                        {post.category}
+                      </span>
+                      <span className="text-slate-400">&bull;</span>
+                      <span className="text-slate-500 font-normal">{post.readTime}</span>
+                    </div>
+                    <h3 className="text-sm font-bold text-[#0F2D4E] group-hover:text-[#046e82] transition-colors leading-snug">
+                      <Link href={`/blog/${post.slug}`}>
+                        {post.title}
+                      </Link>
+                    </h3>
+                    <p className="mt-2 text-xs text-slate-600 line-clamp-3 leading-relaxed">
+                      {post.directAnswer}
+                    </p>
+                  </div>
+                  <div className="mt-4 pt-3 border-t border-slate-200/60 flex items-center justify-between text-xs font-bold text-[#046e82]">
+                    <span>Read Technical Dossier</span>
+                    <span className="group-hover:translate-x-1 transition-transform">→</span>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
       </main>
 
       <Footer />

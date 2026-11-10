@@ -6,6 +6,9 @@ import Footer from '@/components/Footer';
 export const metadata: Metadata = {
   title: 'Privacy Policy | Medventa India',
   description: 'Read our Privacy Policy to understand how Medventa collects, uses, and protects your personal information.',
+  alternates: {
+    canonical: 'https://www.medventa.in/policies/privacy-policy',
+  },
 };
 
 export default function PrivacyPolicyPage() {

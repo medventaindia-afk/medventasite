@@ -3,6 +3,8 @@
  * Handles live catalog fetching, inventory queries, and native Shopify Cart/Checkout.
  */
 
+import type { Product } from '@/data/products';
+
 const SHOPIFY_DOMAIN = process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN || 'qrgte5-fm.myshopify.com';
 const SHOPIFY_TOKEN = process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN || '';
 const API_VERSION = process.env.SHOPIFY_STOREFRONT_API_VERSION || '2024-07';
@@ -10,9 +12,11 @@ const API_VERSION = process.env.SHOPIFY_STOREFRONT_API_VERSION || '2024-07';
 export async function shopifyFetch<T>({
   query,
   variables = {},
+  revalidate = 60,
 }: {
   query: string;
   variables?: Record<string, any>;
+  revalidate?: number | false;
 }): Promise<{ data: T; errors?: any[] }> {
   const endpoint = `https://${SHOPIFY_DOMAIN}/api/${API_VERSION}/graphql.json`;
 
@@ -22,12 +26,23 @@ export async function shopifyFetch<T>({
   };
 
   try {
-    const res = await fetch(endpoint, {
+    const fetchOptions: RequestInit & { next?: { revalidate: number } } = {
       method: 'POST',
       headers,
       body: JSON.stringify({ query, variables }),
-      next: { revalidate: 60 }, // ISR caching for 60 seconds
-    });
+    };
+
+    if (revalidate === false) {
+      fetchOptions.cache = 'no-store';
+    } else {
+      fetchOptions.next = { revalidate };
+    }
+
+    const res = await fetch(endpoint, fetchOptions);
+
+    if (!res.ok) {
+      throw new Error(`Shopify GraphQL HTTP ${res.status}`);
+    }
 
     const json = await res.json();
     if (json.errors) {
@@ -48,6 +63,9 @@ export interface ShopifyProductNode {
   id: string;
   title: string;
   handle: string;
+  vendor?: string;
+  productType?: string;
+  tags?: string[];
   description: string;
   descriptionHtml?: string;
   availableForSale: boolean;
@@ -80,6 +98,7 @@ export interface ShopifyProductNode {
       node: {
         id: string;
         title: string;
+        sku?: string;
         availableForSale: boolean;
         price: {
           amount: string;
@@ -165,12 +184,17 @@ export async function getShopifyProducts(first = 50): Promise<ShopifyProductNode
 }
 
 export async function getShopifyProductByHandle(handle: string): Promise<ShopifyProductNode | null> {
+  if (!SHOPIFY_TOKEN) return null;
+
   const query = `
     query getProductByHandle($handle: String!) {
       product(handle: $handle) {
         id
         title
         handle
+        vendor
+        productType
+        tags
         description
         descriptionHtml
         availableForSale
@@ -203,6 +227,7 @@ export async function getShopifyProductByHandle(handle: string): Promise<Shopify
             node {
               id
               title
+              sku
               availableForSale
               price {
                 amount
@@ -223,10 +248,181 @@ export async function getShopifyProductByHandle(handle: string): Promise<Shopify
     const res = await shopifyFetch<{ product: ShopifyProductNode | null }>({
       query,
       variables: { handle },
+      revalidate: 86400,
     });
     return res.data?.product || null;
   } catch (e) {
     console.warn(`[Shopify] Product fetch for ${handle} failed:`, e);
+    return null;
+  }
+}
+
+function stripHtmlTags(html: string): string {
+  return html
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function parseTechnicalSpecs(
+  html: string,
+  vendor: string,
+  sku: string,
+  category: string
+): { label: string; value: string }[] {
+  const specs: { label: string; value: string }[] = [];
+  if (vendor) specs.push({ label: 'Manufacturer / Brand', value: vendor });
+  if (sku) specs.push({ label: 'Catalog Part / SKU', value: sku });
+  if (category) specs.push({ label: 'Clinical Category', value: category });
+
+  const regex = /<p[^>]*>\s*<strong>([^<:]+):?\s*<\/strong>:?\s*([^<]+)<\/p>/gi;
+  let match: RegExpExecArray | null;
+  while ((match = regex.exec(html)) !== null && specs.length < 10) {
+    const label = stripHtmlTags(match[1]).replace(/:$/, '').trim();
+    const value = stripHtmlTags(match[2]).trim();
+    if (
+      label &&
+      value &&
+      label.toLowerCase() !== 'product description' &&
+      !specs.some((s) => s.label.toLowerCase() === label.toLowerCase())
+    ) {
+      specs.push({ label, value });
+    }
+  }
+
+  return specs;
+}
+
+export async function getLiveShopifyProductAsLocalProduct(
+  handle: string
+): Promise<(Product & { variantId?: string }) | null> {
+  const fallbackImage =
+    'https://www.medventa.in/cdn/shop/files/ChatGPT_Image_Aug_13_2025_02_02_46_PM_1536x564.png';
+
+  // 1. Try Storefront GraphQL API first
+  const sp = await getShopifyProductByHandle(handle);
+  if (sp) {
+    const firstVariant = sp.variants?.edges?.[0]?.node;
+    const price = parseFloat(
+      firstVariant?.price?.amount || sp.priceRange?.minVariantPrice?.amount || '0'
+    );
+    const rawCompare =
+      firstVariant?.compareAtPrice?.amount || sp.compareAtPriceRange?.minVariantPrice?.amount;
+    const compareAtPrice = rawCompare ? parseFloat(rawCompare) : undefined;
+    const vendor = sp.vendor || 'MedVenta Verified OEM';
+    const category = sp.productType || sp.tags?.[0] || 'Medical & Surgical Supplies';
+    const categorySlug = category
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-|-$/g, '') || 'medical-supplies';
+    const sku = firstVariant?.sku || handle.split('-').pop()?.toUpperCase() || 'MV-SKU';
+
+    const images = (sp.images?.edges || []).map((e) => e.node.url).filter(Boolean);
+    const primaryImage = sp.featuredImage?.url || images[0] || fallbackImage;
+    const cleanDescription =
+      stripHtmlTags(sp.descriptionHtml || sp.description || '') ||
+      `${sp.title} supplied directly for hospital and institutional clinical procurement across India with CDSCO compliance and GST tax invoice support.`;
+
+    const technicalSpecs = parseTechnicalSpecs(
+      sp.descriptionHtml || '',
+      vendor,
+      sku,
+      category
+    );
+
+    const features: string[] = [
+      `Authentic ${vendor} clinical medical product with verified factory batch traceability`,
+      '100% GST Input Tax Credit (ITC) compliant tax invoice (HSN 9018 / 3005)',
+      'Fast pan-India dispatch across Delhi NCR, Mumbai, Bengaluru, Chennai & Tier-1/2 hospitals',
+      ...technicalSpecs.slice(0, 3).map((s) => `${s.label}: ${s.value}`),
+    ];
+
+    return {
+      id: sp.id,
+      handle: sp.handle,
+      name: sp.title,
+      category,
+      categorySlug,
+      brand: vendor,
+      sku,
+      price: Number.isFinite(price) && price > 0 ? price : 1999.0,
+      compareAtPrice:
+        compareAtPrice && Number.isFinite(compareAtPrice) && compareAtPrice > price
+          ? compareAtPrice
+          : undefined,
+      specs: `${category} | SKU: ${sku}${firstVariant?.title && firstVariant.title !== 'Default Title' ? ` | ${firstVariant.title}` : ''}`,
+      technicalSpecs,
+      certifications: 'US FDA / CE Marked / CDSCO Import Compliant Medical Device',
+      description: cleanDescription,
+      features,
+      image: primaryImage,
+      gallery: images.length ? images : [primaryImage],
+      inStock: sp.availableForSale !== false,
+      variantId: firstVariant?.id,
+    };
+  }
+
+  // 2. Public Shopify Storefront .json fallback (zero-token resilience if env var is missing)
+  try {
+    const res = await fetch(
+      `https://${SHOPIFY_DOMAIN}/products/${encodeURIComponent(handle)}.json`,
+      { next: { revalidate: 86400 } }
+    );
+    if (!res.ok) return null;
+    const json = await res.json();
+    const p = json?.product;
+    if (!p || !p.handle) return null;
+
+    const v0 = p.variants?.[0];
+    const price = parseFloat(v0?.price || '0');
+    const compareAtPrice = v0?.compare_at_price ? parseFloat(v0.compare_at_price) : undefined;
+    const vendor = p.vendor || 'MedVenta Verified OEM';
+    const category = p.product_type || 'Medical & Surgical Supplies';
+    const categorySlug = category
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-|-$/g, '') || 'medical-supplies';
+    const sku = v0?.sku || handle.split('-').pop()?.toUpperCase() || 'MV-SKU';
+    const images: string[] = (p.images || []).map((im: any) => im.src).filter(Boolean);
+    const primaryImage = p.image?.src || images[0] || fallbackImage;
+    const cleanDescription =
+      stripHtmlTags(p.body_html || '') ||
+      `${p.title} supplied directly for institutional hospital procurement across India.`;
+    const technicalSpecs = parseTechnicalSpecs(p.body_html || '', vendor, sku, category);
+
+    return {
+      id: `gid://shopify/Product/${p.id}`,
+      handle: p.handle,
+      name: p.title,
+      category,
+      categorySlug,
+      brand: vendor,
+      sku,
+      price: Number.isFinite(price) && price > 0 ? price : 1999.0,
+      compareAtPrice:
+        compareAtPrice && Number.isFinite(compareAtPrice) && compareAtPrice > price
+          ? compareAtPrice
+          : undefined,
+      specs: `${category} | SKU: ${sku}${v0?.title && v0.title !== 'Default Title' ? ` | ${v0.title}` : ''}`,
+      technicalSpecs,
+      certifications: 'US FDA / CE Marked / CDSCO Import Compliant Medical Device',
+      description: cleanDescription,
+      features: [
+        `Authentic ${vendor} clinical medical product with verified batch traceability`,
+        '100% GST Input Tax Credit (ITC) compliant tax invoice',
+        'Pan-India institutional dispatch & hospital rate contract availability',
+      ],
+      image: primaryImage,
+      gallery: images.length ? images : [primaryImage],
+      inStock: true,
+      variantId: v0?.id ? `gid://shopify/ProductVariant/${v0.id}` : undefined,
+    };
+  } catch (e) {
+    console.warn(`[Shopify JSON Fallback] Failed for ${handle}:`, e);
     return null;
   }
 }

@@ -6,6 +6,9 @@ import Footer from '@/components/Footer';
 export const metadata: Metadata = {
   title: 'Shipping Policy | Medventa India',
   description: 'Learn about Medventa shipping timelines, logistics partners, and delivery policies for medical supplies across India.',
+  alternates: {
+    canonical: 'https://www.medventa.in/policies/shipping-policy',
+  },
 };
 
 export default function ShippingPolicyPage() {

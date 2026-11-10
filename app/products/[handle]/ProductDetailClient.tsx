@@ -408,6 +408,7 @@ export default function ProductDetailClient({ initialProduct }: { initialProduct
                   </div>
                   <Link
                     href={`/in/b2b-quote?product=${encodeURIComponent(product.name)}`}
+                    rel="nofollow"
                     style={{
                       display: 'inline-block',
                       fontSize: '12px',
