@@ -109,7 +109,11 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       }
     } catch (error: any) {
       console.error('[Checkout Error]:', error);
-      alert('Unable to redirect to checkout right now. Please try again.');
+      alert(
+        error?.message && !/Failed to initialize/.test(error.message)
+          ? error.message
+          : 'Unable to redirect to checkout right now. Please try again.'
+      );
       setIsCheckingOut(false);
     }
   };
