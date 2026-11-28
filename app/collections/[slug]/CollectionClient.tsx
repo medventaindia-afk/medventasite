@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useParams, useRouter } from 'next/navigation';
@@ -9,6 +9,22 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 import { PRODUCTS, type Product } from '@/data/products';
+import type { CatalogItem } from '@/lib/shopify';
+
+function itemToProduct(i: CatalogItem): Product & { variantId?: string } {
+  return {
+    id: i.id, handle: i.handle, name: i.name, category: i.category, categorySlug: i.categorySlug,
+    brand: i.brand, sku: i.sku, price: i.price, compareAtPrice: i.compareAtPrice,
+    specs: i.sku ? `${i.category} | SKU: ${i.sku}` : i.category, technicalSpecs: [],
+    certifications: 'US FDA / CE Marked / CDSCO Import Compliant', description: '', features: [],
+    image: i.image, gallery: [i.image], inStock: i.inStock, variantId: i.variantId,
+  };
+}
+
+const CATEGORY_SEARCH: Record<string, string> = {
+  'surgical-supplies': 'surgical', 'laboratory-equipment': 'laboratory', sutures: 'suture',
+  diagnostics: 'diagnostic', catheters: 'catheter', nephrology: 'dialysis', 'wound-care': 'wound',
+};
 import { useCart } from '@/context/CartContext';
 
 const CATEGORIES = [
@@ -32,7 +48,17 @@ const SLUG_ALIASES: Record<string, string> = {
   'advanced-wound-care': 'wound-care',
 };
 
-export default function CollectionPage({ params: propParams }: { params?: { slug?: string } }) {
+export default function CollectionPage({
+  params: propParams,
+  initialItems,
+  initialHasNext = false,
+  initialCursor = null,
+}: {
+  params?: { slug?: string };
+  initialItems?: CatalogItem[];
+  initialHasNext?: boolean;
+  initialCursor?: string | null;
+}) {
   const routeParams = useParams();
   const rawSlug = propParams?.slug || (routeParams?.slug as string) || 'all';
   const normalizedSlug = rawSlug.toLowerCase();
@@ -47,6 +73,42 @@ export default function CollectionPage({ params: propParams }: { params?: { slug
   const router = useRouter();
   const { addToCart } = useCart();
 
+  const live = !!(initialItems && initialItems.length);
+  const [items, setItems] = useState<Product[]>(
+    live ? initialItems!.map(itemToProduct) : PRODUCTS
+  );
+  const [hasNext, setHasNext] = useState(initialHasNext);
+  const [cursor, setCursor] = useState<string | null>(initialCursor);
+  const [loading, setLoading] = useState(false);
+  const firstRun = useRef(true);
+
+  const serverQuery = (searchQuery.trim() || CATEGORY_SEARCH[selectedCategory] || '').trim();
+
+  const fetchPage = async (after: string | null, replace: boolean) => {
+    setLoading(true);
+    try {
+      const r = await fetch(`/api/catalog?q=${encodeURIComponent(serverQuery)}${after ? `&after=${encodeURIComponent(after)}` : ''}`);
+      if (!r.ok) throw new Error('catalog');
+      const j = await r.json();
+      const mapped = (j.items as CatalogItem[]).map(itemToProduct);
+      setItems(prev => (replace ? mapped : [...prev, ...mapped]));
+      setHasNext(!!j.hasNextPage);
+      setCursor(j.endCursor || null);
+    } catch {
+      /* keep what is already shown */
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (!live) return;
+    if (firstRun.current) { firstRun.current = false; if (!serverQuery) return; }
+    const t = setTimeout(() => fetchPage(null, true), 350);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [serverQuery]);
+
   const handleBuyNow = (product: Product) => {
     addToCart(product, 1);
     router.push('/checkout');
@@ -54,11 +116,11 @@ export default function CollectionPage({ params: propParams }: { params?: { slug
 
   // Filtered list
   const filteredProducts = useMemo(() => {
-    return PRODUCTS.filter(p => {
-      const matchCat = selectedCategory === 'all' || p.categorySlug === selectedCategory;
+    return items.filter(p => {
+      const matchCat = live || selectedCategory === 'all' || p.categorySlug === selectedCategory;
       const matchBrand = selectedBrand === 'All' || p.brand === selectedBrand;
       const matchSearch =
-        !searchQuery.trim() ||
+        live || !searchQuery.trim() ||
         p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         p.brand.toLowerCase().includes(searchQuery.toLowerCase()) ||
         p.sku.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -69,10 +131,10 @@ export default function CollectionPage({ params: propParams }: { params?: { slug
       if (sortBy === 'name-desc') return b.name.localeCompare(a.name);
       return 0;
     });
-  }, [selectedCategory, selectedBrand, searchQuery, sortBy]);
+  }, [items, live, selectedCategory, selectedBrand, searchQuery, sortBy]);
 
   const activeCategoryObj = CATEGORIES.find(c => c.slug === selectedCategory) || CATEGORIES[0];
-  const brands = ['All', ...Array.from(new Set(PRODUCTS.map(p => p.brand)))];
+  const brands = ['All', ...Array.from(new Set(items.map(p => p.brand)))];
 
   return (
     <div style={{ background: '#fcfcfc', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
@@ -104,7 +166,7 @@ export default function CollectionPage({ params: propParams }: { params?: { slug
               </p>
             </div>
             <div style={{ background: '#ffffff', border: '1px solid #dcdfe4', borderRadius: '6px', padding: '6px 14px', fontSize: '13px', color: '#444' }}>
-              Showing <strong style={{ color: '#1d1d1d' }}>{filteredProducts.length}</strong> verified medical products
+              Showing <strong style={{ color: '#1d1d1d' }}>{filteredProducts.length}</strong> medical products{hasNext ? '+' : ''}
             </div>
           </div>
         </div>
@@ -345,6 +407,17 @@ export default function CollectionPage({ params: propParams }: { params?: { slug
                 </div>
               </div>
             ))}
+          </div>
+        )}
+        {hasNext && (
+          <div style={{ textAlign: 'center', marginTop: '32px' }}>
+            <button
+              onClick={() => fetchPage(cursor, false)}
+              disabled={loading}
+              style={{ background: '#046e82', color: '#fff', border: 'none', borderRadius: '6px', padding: '12px 28px', fontSize: '14px', fontWeight: 700, cursor: 'pointer' }}
+            >
+              {loading ? 'Loading…' : 'Load more products'}
+            </button>
           </div>
         )}
 
