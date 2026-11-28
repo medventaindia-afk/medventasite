@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import CollectionClient from './CollectionClient';
+import { getShopifyCatalogPage } from '@/lib/shopify';
 
 const CATEGORY_TITLES: Record<string, string> = {
   all: 'Healthcare & Medical Products Catalog | MedVenta India',
@@ -48,6 +49,14 @@ export async function generateMetadata({
   };
 }
 
-export default function CollectionSlugPage({ params }: CollectionPageProps) {
-  return <CollectionClient params={params} />;
+export default async function CollectionSlugPage({ params }: CollectionPageProps) {
+  const page = await getShopifyCatalogPage({ first: 48 });
+  return (
+    <CollectionClient
+      params={params}
+      initialItems={page?.items}
+      initialHasNext={page?.hasNextPage}
+      initialCursor={page?.endCursor}
+    />
+  );
 }
