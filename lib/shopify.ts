@@ -633,3 +633,97 @@ export async function removeShopifyCartLines(
 
   return res.data?.cartLinesRemove?.cart || null;
 }
+
+// -----------------------------------------------------------------------------
+// Paginated live catalogue (used by /collections/* and /api/catalog)
+// -----------------------------------------------------------------------------
+export interface CatalogItem {
+  id: string;
+  handle: string;
+  name: string;
+  brand: string;
+  category: string;
+  categorySlug: string;
+  sku: string;
+  price: number;
+  compareAtPrice?: number;
+  image: string;
+  inStock: boolean;
+  variantId?: string;
+}
+
+export interface CatalogPage {
+  items: CatalogItem[];
+  hasNextPage: boolean;
+  endCursor: string | null;
+}
+
+const CATALOG_FALLBACK_IMAGE =
+  'https://www.medventa.in/cdn/shop/files/ChatGPT_Image_Aug_13_2025_02_02_46_PM_1536x564.png';
+
+export async function getShopifyCatalogPage({
+  first = 48,
+  after = null,
+  search = '',
+}: {
+  first?: number;
+  after?: string | null;
+  search?: string;
+}): Promise<CatalogPage | null> {
+  if (!SHOPIFY_TOKEN) return null;
+  const query = `
+    query catalog($first: Int!, $after: String, $q: String) {
+      products(first: $first, after: $after, query: $q) {
+        pageInfo { hasNextPage endCursor }
+        edges {
+          node {
+            id title handle vendor productType availableForSale
+            priceRange { minVariantPrice { amount } }
+            compareAtPriceRange { minVariantPrice { amount } }
+            featuredImage { url }
+            variants(first: 1) { edges { node { id sku price { amount } compareAtPrice { amount } } } }
+          }
+        }
+      }
+    }
+  `;
+  try {
+    const res = await shopifyFetch<{
+      products: {
+        pageInfo: { hasNextPage: boolean; endCursor: string | null };
+        edges: Array<{ node: any }>;
+      };
+    }>({
+      query,
+      variables: { first, after, q: search.trim() || null },
+      revalidate: 300,
+    });
+    const p = res.data?.products;
+    if (!p) return null;
+    const items: CatalogItem[] = p.edges.map(({ node }) => {
+      const v = node.variants?.edges?.[0]?.node;
+      const price = parseFloat(v?.price?.amount || node.priceRange?.minVariantPrice?.amount || '0');
+      const cmpRaw = v?.compareAtPrice?.amount || node.compareAtPriceRange?.minVariantPrice?.amount;
+      const cmp = cmpRaw ? parseFloat(cmpRaw) : undefined;
+      const category = node.productType || 'Medical & Surgical Supplies';
+      return {
+        id: node.id,
+        handle: node.handle,
+        name: node.title,
+        brand: node.vendor || 'MedVenta Verified OEM',
+        category,
+        categorySlug: category.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
+        sku: v?.sku || '',
+        price: Number.isFinite(price) ? price : 0,
+        compareAtPrice: cmp && cmp > price ? cmp : undefined,
+        image: node.featuredImage?.url || CATALOG_FALLBACK_IMAGE,
+        inStock: node.availableForSale !== false,
+        variantId: v?.id,
+      };
+    });
+    return { items, hasNextPage: p.pageInfo.hasNextPage, endCursor: p.pageInfo.endCursor };
+  } catch (e) {
+    console.warn('[Shopify] catalogue page failed:', e);
+    return null;
+  }
+}
