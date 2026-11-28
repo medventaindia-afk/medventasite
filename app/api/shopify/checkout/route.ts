@@ -18,6 +18,7 @@ export async function POST(req: NextRequest) {
     }
 
     const lines: Array<{ merchandiseId: string; quantity: number }> = [];
+    const unresolved: string[] = [];
 
     for (const item of items) {
       let resolvedVariantId = item.variantId;
@@ -57,45 +58,11 @@ export async function POST(req: NextRequest) {
         }
       }
 
-      // If still not resolved, query the first available product in Shopify as fallback
+      // Never substitute a different product: if an item cannot be matched to a
+      // Shopify variant, report it instead of charging the customer for something else.
       if (!resolvedVariantId) {
-        try {
-          const fallbackRes = await shopifyFetch<{
-            products: {
-              edges: Array<{
-                node: {
-                  variants: {
-                    edges: Array<{ node: { id: string } }>;
-                  };
-                };
-              }>;
-            };
-          }>({
-            query: `
-              query getFirstAvailableVariant {
-                products(first: 1) {
-                  edges {
-                    node {
-                      variants(first: 1) {
-                        edges {
-                          node {
-                            id
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            `,
-          });
-          const fallbackId = fallbackRes.data?.products?.edges?.[0]?.node?.variants?.edges?.[0]?.node?.id;
-          if (fallbackId) {
-            resolvedVariantId = fallbackId;
-          }
-        } catch (e) {
-          console.warn('[Shopify Checkout] Fallback variant lookup failed:', e);
-        }
+        unresolved.push(item.handle || item.id);
+        continue;
       }
 
       if (resolvedVariantId) {
@@ -104,6 +71,17 @@ export async function POST(req: NextRequest) {
           quantity: item.quantity || 1,
         });
       }
+    }
+
+    if (unresolved.length) {
+      return NextResponse.json(
+        {
+          error:
+            'Some items in your cart are not available for online purchase right now. Please remove them and try again, or contact us on WhatsApp.',
+          unavailable: unresolved,
+        },
+        { status: 422 }
+      );
     }
 
     if (!lines.length) {
@@ -117,10 +95,24 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Failed to create Shopify checkout session' }, { status: 500 });
     }
 
+    // Shopify builds checkout links on the store's primary domain. If checkout is served
+    // from a separate Shopify-connected domain, point customers there.
+    let checkoutUrl = cart.checkoutUrl;
+    const checkoutHost = process.env.NEXT_PUBLIC_SHOPIFY_CHECKOUT_DOMAIN;
+    if (checkoutHost) {
+      try {
+        const u = new URL(checkoutUrl);
+        u.host = checkoutHost;
+        checkoutUrl = u.toString();
+      } catch {
+        /* keep the original link */
+      }
+    }
+
     return NextResponse.json({
       success: true,
       cartId: cart.id,
-      checkoutUrl: cart.checkoutUrl,
+      checkoutUrl,
       totalQuantity: cart.totalQuantity,
       totalAmount: cart.cost.totalAmount,
     });
